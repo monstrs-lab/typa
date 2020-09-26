@@ -1,0 +1,37 @@
+{
+  "name": "@typa/logger",
+  "version": "0.0.14",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "build": "mctl library build"
+  },
+  "dependencies": {
+    "@monstrs/log": "^0.0.17"
+  },
+  "devDependencies": {
+    "@monstrs/mctl-cli": "0.2.55",
+    "@nestjs/common": "^7.4.4",
+    "@nestjs/core": "^7.4.4",
+    "@nestjs/testing": "^7.4.4",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "6.6.3",
+    "typeorm": "*",
+    "winston": "*"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.3.2",
+    "@nestjs/core": "^7.3.2",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
