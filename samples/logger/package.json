@@ -10,7 +10,7 @@
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.55",
+    "@monstrs/mctl-cli": "0.2.56",
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/platform-express": "^7.4.4",
@@ -20,10 +20,7 @@
   },
   "dependencies": {
     "cli-color": "*",
-    "flaschenpost": "*"
-  },
-  "externalDependencies": {
-    "cli-color": "*",
-    "flaschenpost": "*"
+    "flaschenpost": "*",
+    "sqlite3": "^5.0.0"
   }
 }
