@@ -4,9 +4,9 @@ import { Module }                from '@nestjs/common'
 import { Test }                  from '@nestjs/testing'
 
 import { ChildrenModulesConfig } from './children-modules.config'
-import { TypaModuleOptions }     from './interfaces'
 import { TYPA_MODULE_OPTIONS }   from './typa.constants'
 import { TypaModule }            from './typa.module'
+import { TypaModuleOptions }     from './type-module-options.interface'
 
 describe('typa', () => {
   describe('module', () => {
