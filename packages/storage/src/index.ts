@@ -1,2 +1,1 @@
-export * from './storage.module'
-export * from './interfaces'
+export * from './module'

@@ -5,10 +5,10 @@ import { TypaLoggerModule }       from '@typa/logger'
 import { TypaStorageModule }      from '@typa/storage'
 
 import { ChildrenModulesConfig }  from './children-modules.config'
-import { TypaModuleOptions }      from './interfaces'
-import { TypaModuleAsyncOptions } from './interfaces'
-import { TypaOptionsFactory }     from './interfaces'
 import { TYPA_MODULE_OPTIONS }    from './typa.constants'
+import { TypaModuleOptions }      from './type-module-options.interface'
+import { TypaModuleAsyncOptions } from './type-module-options.interface'
+import { TypaOptionsFactory }     from './type-module-options.interface'
 
 @Module({})
 export class TypaModule {

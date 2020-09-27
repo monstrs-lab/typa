@@ -1,11 +1,11 @@
 import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
 
-export interface InMemoryStoreOptions {
+export interface InMemoryStorageOptions {
   type: 'inmemory'
   entityPrefix?: string
 }
 
-export interface PostgresStoreOptions {
+export interface PostgresStorageOptions {
   type: 'postgres'
   host: string
   database: string
@@ -15,7 +15,7 @@ export interface PostgresStoreOptions {
   entityPrefix?: string
 }
 
-export type StorageModuleOptions = InMemoryStoreOptions | PostgresStoreOptions
+export type StorageModuleOptions = InMemoryStorageOptions | PostgresStorageOptions
 
 export interface StorageOptionsFactory {
   createStorageOptions(): Promise<StorageModuleOptions> | StorageModuleOptions

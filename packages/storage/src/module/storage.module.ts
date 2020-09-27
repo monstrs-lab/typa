@@ -1,9 +1,9 @@
 import { DynamicModule, Module, Provider } from '@nestjs/common'
 import { TypeOrmModule }                   from '@nestjs/typeorm'
 
-import { StorageModuleAsyncOptions }       from './interfaces'
-import { StorageModuleOptions }            from './interfaces'
-import { StorageOptionsFactory }           from './interfaces'
+import { StorageModuleAsyncOptions }       from './storage-module-options.interface'
+import { StorageModuleOptions }            from './storage-module-options.interface'
+import { StorageOptionsFactory }           from './storage-module-options.interface'
 import { TYPA_STORAGE_MODULE_OPTIONS }     from './storage.constants'
 import { TypeOrmConfig }                   from './typeorm.config'
 import { createStorageExportsProvider }    from './storage.providers'

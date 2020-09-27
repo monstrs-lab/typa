@@ -4,7 +4,7 @@ import { Module }                      from '@nestjs/common'
 import { Test }                        from '@nestjs/testing'
 import { Connection }                  from 'typeorm'
 
-import { StorageModuleOptions }        from './interfaces'
+import { StorageModuleOptions }        from './storage-module-options.interface'
 import { TYPA_STORAGE_MODULE_OPTIONS } from './storage.constants'
 import { TypaStorageModule }           from './storage.module'
 import { TypeOrmConfig }               from './typeorm.config'
