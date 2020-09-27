@@ -12,10 +12,11 @@
     "build": "mctl library build"
   },
   "dependencies": {
-    "@typa/logger": "workspace:0.0.14"
+    "@typa/logger": "workspace:0.0.14",
+    "@typa/storage": "workspace:0.0.14"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.55",
+    "@monstrs/mctl-cli": "0.2.56",
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/testing": "^7.4.4",

@@ -1,14 +1,76 @@
-import { DynamicModule, Module } from '@nestjs/common'
+import { DynamicModule, Module }  from '@nestjs/common'
+import { Provider }               from '@nestjs/common'
 
-import { TypaLoggerModule }      from '@typa/logger'
+import { TypaLoggerModule }       from '@typa/logger'
+import { TypaStorageModule }      from '@typa/storage'
+
+import { ChildrenModulesConfig }  from './children-modules.config'
+import { TypaModuleOptions }      from './interfaces'
+import { TypaModuleAsyncOptions } from './interfaces'
+import { TypaOptionsFactory }     from './interfaces'
+import { TYPA_MODULE_OPTIONS }    from './typa.constants'
 
 @Module({})
 export class TypaModule {
-  static register(): DynamicModule {
+  static register(options: TypaModuleOptions = {}): DynamicModule {
     return {
       global: true,
       module: TypaModule,
-      imports: [TypaLoggerModule.register()],
+      providers: [
+        {
+          provide: TYPA_MODULE_OPTIONS,
+          useValue: options,
+        },
+        ChildrenModulesConfig,
+      ],
+      exports: [ChildrenModulesConfig],
+      imports: [TypaLoggerModule.register(), TypaStorageModule.register(options.storage)],
+    }
+  }
+
+  static registerAsync(options: TypaModuleAsyncOptions): DynamicModule {
+    return {
+      global: true,
+      module: TypaStorageModule,
+      imports: [
+        ...(options.imports || []),
+        TypaLoggerModule.register(),
+        TypaStorageModule.registerAsync({
+          useExisting: ChildrenModulesConfig,
+        }),
+      ],
+      providers: [...this.createAsyncProviders(options), ChildrenModulesConfig],
+      exports: [ChildrenModulesConfig],
+    }
+  }
+
+  private static createAsyncProviders(options: TypaModuleAsyncOptions): Provider[] {
+    if (options.useExisting || options.useFactory) {
+      return [this.createAsyncOptionsProvider(options)]
+    }
+
+    return [
+      this.createAsyncOptionsProvider(options),
+      {
+        provide: options.useClass,
+        useClass: options.useClass,
+      },
+    ]
+  }
+
+  private static createAsyncOptionsProvider(options: TypaModuleAsyncOptions): Provider {
+    if (options.useFactory) {
+      return {
+        provide: TYPA_MODULE_OPTIONS,
+        useFactory: options.useFactory,
+        inject: options.inject || [],
+      }
+    }
+
+    return {
+      provide: TYPA_MODULE_OPTIONS,
+      useFactory: (optionsFactory: TypaOptionsFactory) => optionsFactory.createTypaOptions(),
+      inject: [options.useExisting || options.useClass],
     }
   }
 }
