@@ -1,13 +1,17 @@
-import { Inject, Injectable }          from '@nestjs/common'
-import { TypeOrmOptionsFactory }       from '@nestjs/typeorm'
-import { TypeOrmModuleOptions }        from '@nestjs/typeorm'
+/* eslint-disable import/named */
 
-import { TypeOrmLogger }               from '@typa/logger'
+import { Inject, Injectable }                                from '@nestjs/common'
+import { TypeOrmOptionsFactory }                             from '@nestjs/typeorm'
+import { TypeOrmModuleOptions }                              from '@nestjs/typeorm'
 
-import { MigrationsStorage }           from './migrations.storage'
-import { StorageModuleOptions }        from './storage-module-options.interface'
-import { PostgresStorageOptions }      from './storage-module-options.interface'
-import { TYPA_STORAGE_MODULE_OPTIONS } from './storage.constants'
+import { TypeOrmLogger }                                     from '@typa/logger'
+
+import { Lock }                                              from '../lock-store'
+import { MigrationsStorage }                                 from './migrations.storage'
+import { StorageModuleOptions }                              from './storage-module-options.interface'
+import { PostgresStorageOptions }                            from './storage-module-options.interface'
+import { TYPA_STORAGE_MODULE_OPTIONS }                       from './storage.constants'
+import { postgresMigrations as lockStorePostgresMigrations } from '../lock-store'
 
 @Injectable()
 export class TypeOrmConfig implements TypeOrmOptionsFactory {
@@ -24,6 +28,8 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
   }
 
   protected createPostgresOptions(options: PostgresStorageOptions): TypeOrmModuleOptions {
+    MigrationsStorage.addMigrations(lockStorePostgresMigrations)
+
     return {
       type: 'postgres',
       database: options.database,
@@ -37,7 +43,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       migrationsRun: true,
       synchronize: false,
       dropSchema: false,
-      entities: [],
+      entities: [Lock],
     }
   }
 
@@ -50,7 +56,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       logger: new TypeOrmLogger(),
       migrations: MigrationsStorage.getMigrations(),
       migrationsRun: true,
-      entities: [],
+      entities: [Lock],
     }
   }
 }
