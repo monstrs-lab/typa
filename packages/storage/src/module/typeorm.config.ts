@@ -1,17 +1,18 @@
 /* eslint-disable import/named */
 
-import { Inject, Injectable }                                from '@nestjs/common'
-import { TypeOrmOptionsFactory }                             from '@nestjs/typeorm'
-import { TypeOrmModuleOptions }                              from '@nestjs/typeorm'
+import { Inject, Injectable }          from '@nestjs/common'
+import { TypeOrmOptionsFactory }       from '@nestjs/typeorm'
+import { TypeOrmModuleOptions }        from '@nestjs/typeorm'
 
-import { TypeOrmLogger }                                     from '@typa/logger'
+import { TypeOrmLogger }               from '@typa/logger'
 
-import { Lock }                                              from '../lock-store'
-import { MigrationsStorage }                                 from './migrations.storage'
-import { StorageModuleOptions }                              from './storage-module-options.interface'
-import { PostgresStorageOptions }                            from './storage-module-options.interface'
-import { TYPA_STORAGE_MODULE_OPTIONS }                       from './storage.constants'
-import { postgresMigrations as lockStorePostgresMigrations } from '../lock-store'
+import * as migrations                 from './typeorm.migrations'
+import { ConsumerProgress }            from '../consumer-progress-store'
+import { Lock }                        from '../lock-store'
+import { MigrationsStorage }           from './migrations.storage'
+import { StorageModuleOptions }        from './storage-module-options.interface'
+import { PostgresStorageOptions }      from './storage-module-options.interface'
+import { TYPA_STORAGE_MODULE_OPTIONS } from './storage.constants'
 
 @Injectable()
 export class TypeOrmConfig implements TypeOrmOptionsFactory {
@@ -28,7 +29,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
   }
 
   protected createPostgresOptions(options: PostgresStorageOptions): TypeOrmModuleOptions {
-    MigrationsStorage.addMigrations(lockStorePostgresMigrations)
+    MigrationsStorage.addMigrations(migrations)
 
     return {
       type: 'postgres',
@@ -43,7 +44,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       migrationsRun: true,
       synchronize: false,
       dropSchema: false,
-      entities: [Lock],
+      entities: [Lock, ConsumerProgress],
     }
   }
 
@@ -56,7 +57,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       logger: new TypeOrmLogger(),
       migrations: MigrationsStorage.getMigrations(),
       migrationsRun: true,
-      entities: [Lock],
+      entities: [Lock, ConsumerProgress],
     }
   }
 }
