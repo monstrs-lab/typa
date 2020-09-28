@@ -1,5 +1,6 @@
 import { Provider }                    from '@nestjs/common'
 
+import { ConsumerProgressStore }       from '../consumer-progress-store'
 import { LockStore }                   from '../lock-store'
 import { StorageModuleOptions }        from './storage-module-options.interface'
 import { TYPA_STORAGE_MODULE_OPTIONS } from './storage.constants'
@@ -21,5 +22,5 @@ export const createStorageProvider = (): Provider[] => {
 }
 
 export const createStorageExportsProvider = (): Provider[] => {
-  return [TypeOrmConfig, LockStore]
+  return [TypeOrmConfig, LockStore, ConsumerProgressStore]
 }

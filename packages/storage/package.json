@@ -7,6 +7,7 @@
     "dist"
   ],
   "scripts": {
+    "consumer-progress-store:migration:generate": "typeorm migration:generate --connection consumer-progress-store",
     "lock-store:migration:generate": "typeorm migration:generate --connection lock-store",
     "clean": "rm -r -f dist",
     "prepublishOnly": "yarn run build",
