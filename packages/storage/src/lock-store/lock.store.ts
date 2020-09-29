@@ -5,12 +5,12 @@ import { LessThan }        from 'typeorm'
 import { MoreThanOrEqual } from 'typeorm'
 
 import { Lock }            from './entities'
-import { LockStore }       from './wolkenkit'
+import { BaseLockStore }   from './wolkenkit'
 import { errors }          from './wolkenkit'
 import { getHash }         from './wolkenkit'
 
 @Injectable()
-export class TypeOrmLockStore implements LockStore {
+export class LockStore implements BaseLockStore {
   constructor(private readonly connection: Connection) {}
 
   protected async removeExpiredLocks({

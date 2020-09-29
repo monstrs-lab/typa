@@ -5,8 +5,9 @@ import { Connection }           from 'typeorm'
 import { MigrationInterface }   from 'typeorm'
 import { QueryRunner }          from 'typeorm'
 
+import { TypaStorageModule }    from '@typa/storage'
+
 import { TypaProjectionModule } from './projection.module'
-import { TypaStorageModule }    from './storage.module'
 
 describe('storage', () => {
   describe('module', () => {

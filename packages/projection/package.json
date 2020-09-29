@@ -1,5 +1,5 @@
 {
-  "name": "@typa/storage",
+  "name": "@typa/projection",
   "version": "0.0.14",
   "license": "MIT",
   "main": "src/index.ts",
@@ -13,28 +13,16 @@
   },
   "dependencies": {
     "@nestjs/typeorm": "^7.1.4",
-    "@typa/logger": "workspace:0.0.14",
-    "p-queue": "^6.6.1",
-    "pg": "^8.3.3",
-    "pg-query-stream": "^3.2.3",
-    "sqlite3": "^5.0.0",
-    "stream-array": "^1.1.2",
-    "typeorm": "^0.2",
-    "uuid": "^8.3.0",
-    "wolkenkit": "4.0.0-ctp.6"
+    "@typa/storage": "workspace:0.0.14",
+    "typeorm": "^0.2"
   },
   "devDependencies": {
     "@monstrs/mctl-cli": "0.2.56",
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/testing": "^7.4.4",
-    "@types/lodash": "^4",
-    "@types/stream-array": "^1.1.0",
-    "@types/uuid": "^8.3.0",
-    "lodash": "^4.17.20",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.3",
-    "streamtoarray": "^3.0.0"
+    "rxjs": "6.6.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.3.2",
