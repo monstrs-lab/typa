@@ -381,7 +381,7 @@ describe('consumer-progress-store', () => {
           revision: 1,
         })
 
-        await expect(consumerProgressStore.resetProgress({ consumerId })).resolves.toBe(undefined)
+        await expect(consumerProgressStore.resetProgress({ consumerId })).resolves.toBeUndefined()
       })
     })
   })

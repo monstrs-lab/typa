@@ -1897,6 +1897,7 @@ __metadata:
     rxjs: 6.6.3
     sqlite3: ^5.0.0
     stream-array: ^1.1.2
+    streamtoarray: ^3.0.0
     typeorm: ^0.2
     uuid: ^8.3.0
     wolkenkit: 4.0.0-ctp.6
@@ -13602,7 +13603,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"streamtoarray@npm:3.0.0":
+"streamtoarray@npm:3.0.0, streamtoarray@npm:^3.0.0":
   version: 3.0.0
   resolution: "streamtoarray@npm:3.0.0"
   checksum: 97ce638c05c07d56df0717b54b7a86e78f09d5f6149dd734cb755f188dc090d93b3be7d4c6b3d69660521efdd1c47fcbd888b8b6c0bce9a28841851b64b2e430
