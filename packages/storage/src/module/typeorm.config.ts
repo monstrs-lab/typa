@@ -1,21 +1,25 @@
 /* eslint-disable import/named */
 
-import { Inject, Injectable }          from '@nestjs/common'
-import { TypeOrmOptionsFactory }       from '@nestjs/typeorm'
-import { TypeOrmModuleOptions }        from '@nestjs/typeorm'
-import { getMetadataArgsStorage }      from 'typeorm'
+import { Inject, Injectable }           from '@nestjs/common'
+import { TypeOrmOptionsFactory }        from '@nestjs/typeorm'
+import { TypeOrmModuleOptions }         from '@nestjs/typeorm'
+import { getMetadataArgsStorage }       from 'typeorm'
 
-import { TypeOrmLogger }               from '@typa/logger'
+import { TypeOrmLogger }                from '@typa/logger'
 
-import * as migrations                 from './typeorm.migrations'
-import { ConsumerProgress }            from '../consumer-progress-store'
-import { DomainEventSnapshot }         from '../domain-event-store'
-import { DomainEvent }                 from '../domain-event-store'
-import { Lock }                        from '../lock-store'
-import { MigrationsStorage }           from './migrations.storage'
-import { StorageModuleOptions }        from './storage-module-options.interface'
-import { PostgresStorageOptions }      from './storage-module-options.interface'
-import { TYPA_STORAGE_MODULE_OPTIONS } from './storage.constants'
+import * as migrations                  from './typeorm.migrations'
+import { ConsumerProgress }             from '../consumer-progress-store'
+import { DomainEventSnapshot }          from '../domain-event-store'
+import { DomainEvent }                  from '../domain-event-store'
+import { Lock }                         from '../lock-store'
+import { CommandPriorityQueueItem }     from '../priority-queue-store'
+import { CommandPriorityQueue }         from '../priority-queue-store'
+import { DomainEventPriorityQueueItem } from '../priority-queue-store'
+import { DomainEventPriorityQueue }     from '../priority-queue-store'
+import { MigrationsStorage }            from './migrations.storage'
+import { StorageModuleOptions }         from './storage-module-options.interface'
+import { PostgresStorageOptions }       from './storage-module-options.interface'
+import { TYPA_STORAGE_MODULE_OPTIONS }  from './storage.constants'
 
 @Injectable()
 export class TypeOrmConfig implements TypeOrmOptionsFactory {
@@ -47,7 +51,16 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       migrationsRun: true,
       synchronize: false,
       dropSchema: false,
-      entities: [Lock, ConsumerProgress, DomainEventSnapshot, DomainEvent],
+      entities: [
+        Lock,
+        ConsumerProgress,
+        DomainEventSnapshot,
+        DomainEvent,
+        CommandPriorityQueueItem,
+        CommandPriorityQueue,
+        DomainEventPriorityQueueItem,
+        DomainEventPriorityQueue,
+      ],
     }
   }
 
@@ -67,7 +80,16 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       logger: new TypeOrmLogger(),
       migrations: MigrationsStorage.getMigrations(),
       migrationsRun: true,
-      entities: [Lock, ConsumerProgress, DomainEventSnapshot, DomainEvent],
+      entities: [
+        Lock,
+        ConsumerProgress,
+        DomainEventSnapshot,
+        DomainEvent,
+        CommandPriorityQueueItem,
+        CommandPriorityQueue,
+        DomainEventPriorityQueueItem,
+        DomainEventPriorityQueue,
+      ],
     }
   }
 }

@@ -1888,8 +1888,10 @@ __metadata:
     "@nestjs/testing": ^7.4.4
     "@nestjs/typeorm": ^7.1.4
     "@typa/logger": "workspace:0.0.14"
+    "@types/lodash": ^4
     "@types/stream-array": ^1.1.0
     "@types/uuid": ^8.3.0
+    lodash: ^4.17.20
     p-queue: ^6.6.1
     pg: ^8.3.3
     pg-query-stream: ^3.2.3
@@ -2378,7 +2380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.161":
+"@types/lodash@npm:4.14.161, @types/lodash@npm:^4":
   version: 4.14.161
   resolution: "@types/lodash@npm:4.14.161"
   checksum: c3657517dab1a23059d86ae379c4e7538212f05ba9c3e108ab694167f086118a5b44ed04bcb6e5cd0a89778c29909668302a755df576e3597df16fda8b603443
