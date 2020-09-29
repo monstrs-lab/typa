@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "consumer-progress-store:migration:generate": "typeorm migration:generate --connection consumer-progress-store",
+    "domain-event-store:migration:generate": "typeorm migration:generate --connection domain-event-store",
     "lock-store:migration:generate": "typeorm migration:generate --connection lock-store",
     "clean": "rm -r -f dist",
     "prepublishOnly": "yarn run build",
@@ -33,7 +34,8 @@
     "@types/stream-array": "^1.1.0",
     "@types/uuid": "^8.3.0",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.3"
+    "rxjs": "6.6.3",
+    "streamtoarray": "^3.0.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.3.2",

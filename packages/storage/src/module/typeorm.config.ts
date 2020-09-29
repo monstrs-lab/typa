@@ -3,11 +3,14 @@
 import { Inject, Injectable }          from '@nestjs/common'
 import { TypeOrmOptionsFactory }       from '@nestjs/typeorm'
 import { TypeOrmModuleOptions }        from '@nestjs/typeorm'
+import { getMetadataArgsStorage }      from 'typeorm'
 
 import { TypeOrmLogger }               from '@typa/logger'
 
 import * as migrations                 from './typeorm.migrations'
 import { ConsumerProgress }            from '../consumer-progress-store'
+import { DomainEventSnapshot }         from '../domain-event-store'
+import { DomainEvent }                 from '../domain-event-store'
 import { Lock }                        from '../lock-store'
 import { MigrationsStorage }           from './migrations.storage'
 import { StorageModuleOptions }        from './storage-module-options.interface'
@@ -44,11 +47,18 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       migrationsRun: true,
       synchronize: false,
       dropSchema: false,
-      entities: [Lock, ConsumerProgress],
+      entities: [Lock, ConsumerProgress, DomainEventSnapshot, DomainEvent],
     }
   }
 
   protected createSqliteOptions(): TypeOrmModuleOptions {
+    getMetadataArgsStorage().columns.forEach((column) => {
+      if (column.options.type === 'jsonb') {
+        // eslint-disable-next-line no-param-reassign
+        column.options.type = 'simple-json'
+      }
+    })
+
     return {
       type: 'sqlite',
       database: ':memory:',
@@ -57,7 +67,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       logger: new TypeOrmLogger(),
       migrations: MigrationsStorage.getMigrations(),
       migrationsRun: true,
-      entities: [Lock, ConsumerProgress],
+      entities: [Lock, ConsumerProgress, DomainEventSnapshot, DomainEvent],
     }
   }
 }

@@ -2432,6 +2432,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rxjs", "npm:6.6.3"],
             ["sqlite3", "virtual:6469d5f9d3881e1ebcf1169954923ce6703d6f5e1796fe93c8f74b7fc69e90c8ee123f847e4cfb9c68e8f1b6331eacd2b50d1c6d811a254587512eaee3793e6a#npm:5.0.0"],
             ["stream-array", "npm:1.1.2"],
+            ["streamtoarray", "npm:3.0.0"],
             ["typeorm", "npm:0.2.26"],
             ["uuid", "npm:8.3.0"],
             ["wolkenkit", "npm:4.0.0-ctp.6"]
@@ -2467,6 +2468,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rxjs", "npm:6.6.3"],
             ["sqlite3", "virtual:6469d5f9d3881e1ebcf1169954923ce6703d6f5e1796fe93c8f74b7fc69e90c8ee123f847e4cfb9c68e8f1b6331eacd2b50d1c6d811a254587512eaee3793e6a#npm:5.0.0"],
             ["stream-array", "npm:1.1.2"],
+            ["streamtoarray", "npm:3.0.0"],
             ["typeorm", "npm:0.2.26"],
             ["uuid", "npm:8.3.0"],
             ["wolkenkit", "npm:4.0.0-ctp.6"]
