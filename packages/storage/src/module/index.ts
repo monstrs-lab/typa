@@ -1,4 +1,3 @@
-export * from './projection-module-options.interface'
 export * from './storage-module-options.interface'
-export * from './projection.module'
+export * from './migrations.storage'
 export * from './storage.module'

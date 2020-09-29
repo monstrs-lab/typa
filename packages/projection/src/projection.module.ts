@@ -1,7 +1,8 @@
 import { DynamicModule, Module }   from '@nestjs/common'
 import { TypeOrmModule }           from '@nestjs/typeorm'
 
-import { MigrationsStorage }       from './migrations.storage'
+import { MigrationsStorage }       from '@typa/storage'
+
 import { ProjectionModuleOptions } from './projection-module-options.interface'
 
 @Module({})

@@ -1,19 +1,19 @@
-import { Injectable }            from '@nestjs/common'
-import { Connection }            from 'typeorm'
-import { LessThan }              from 'typeorm'
-import { UpdateResult }          from 'typeorm'
-import { Repository }            from 'typeorm'
-import { FindConditions }        from 'typeorm'
+import { Injectable }                from '@nestjs/common'
+import { Connection }                from 'typeorm'
+import { LessThan }                  from 'typeorm'
+import { UpdateResult }              from 'typeorm'
+import { Repository }                from 'typeorm'
+import { FindConditions }            from 'typeorm'
 
-import { ConsumerProgress }      from './entities'
-import { AggregateIdentifier }   from './wolkenkit'
-import { ConsumerProgressStore } from './wolkenkit'
-import { IsReplaying }           from './wolkenkit'
-import { errors }                from './wolkenkit'
-import { getHash }               from './wolkenkit'
+import { ConsumerProgress }          from './entities'
+import { AggregateIdentifier }       from './wolkenkit'
+import { BaseConsumerProgressStore } from './wolkenkit'
+import { IsReplaying }               from './wolkenkit'
+import { errors }                    from './wolkenkit'
+import { getHash }                   from './wolkenkit'
 
 @Injectable()
-export class TypeOrmConsumerProgressStore implements ConsumerProgressStore {
+export class ConsumerProgressStore implements BaseConsumerProgressStore {
   constructor(private readonly connection: Connection) {}
 
   public async getProgress({
