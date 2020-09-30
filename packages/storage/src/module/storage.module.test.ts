@@ -1,13 +1,18 @@
 /* eslint-disable max-classes-per-file */
 
-import { Module }                      from '@nestjs/common'
-import { Test }                        from '@nestjs/testing'
-import { Connection }                  from 'typeorm'
+import { Module }                        from '@nestjs/common'
+import { Test }                          from '@nestjs/testing'
+import { Connection }                    from 'typeorm'
 
-import { StorageModuleOptions }        from './storage-module-options.interface'
-import { TYPA_STORAGE_MODULE_OPTIONS } from './storage.constants'
-import { TypaStorageModule }           from './storage.module'
-import { TypeOrmConfig }               from './typeorm.config'
+import { ConsumerProgressStore }         from '../consumer-progress-store'
+import { DomainEventStore }              from '../domain-event-store'
+import { LockStore }                     from '../lock-store'
+import { DomainEventPriorityQueueStore } from '../priority-queue-store'
+import { CommandPriorityQueueStore }     from '../priority-queue-store'
+import { StorageModuleOptions }          from './storage-module-options.interface'
+import { TYPA_STORAGE_MODULE_OPTIONS }   from './storage.constants'
+import { TypaStorageModule }             from './storage.module'
+import { TypeOrmConfig }                 from './typeorm.config'
 
 describe('storage', () => {
   describe('module', () => {
@@ -23,6 +28,11 @@ describe('storage', () => {
       }).compile()
 
       expect(module.get(TYPA_STORAGE_MODULE_OPTIONS)).toBeDefined()
+      expect(module.get(DomainEventPriorityQueueStore)).toBeDefined()
+      expect(module.get(CommandPriorityQueueStore)).toBeDefined()
+      expect(module.get(ConsumerProgressStore)).toBeDefined()
+      expect(module.get(DomainEventStore)).toBeDefined()
+      expect(module.get(LockStore)).toBeDefined()
       expect(module.get(TypeOrmConfig)).toBeDefined()
       expect(module.get(Connection)).toBeDefined()
     })
@@ -37,6 +47,11 @@ describe('storage', () => {
       }).compile()
 
       expect(module.get(TYPA_STORAGE_MODULE_OPTIONS)).toBeDefined()
+      expect(module.get(DomainEventPriorityQueueStore)).toBeDefined()
+      expect(module.get(CommandPriorityQueueStore)).toBeDefined()
+      expect(module.get(ConsumerProgressStore)).toBeDefined()
+      expect(module.get(DomainEventStore)).toBeDefined()
+      expect(module.get(LockStore)).toBeDefined()
       expect(module.get(TypeOrmConfig)).toBeDefined()
       expect(module.get(Connection)).toBeDefined()
     })
@@ -57,6 +72,11 @@ describe('storage', () => {
       }).compile()
 
       expect(module.get(TYPA_STORAGE_MODULE_OPTIONS)).toBeDefined()
+      expect(module.get(DomainEventPriorityQueueStore)).toBeDefined()
+      expect(module.get(CommandPriorityQueueStore)).toBeDefined()
+      expect(module.get(ConsumerProgressStore)).toBeDefined()
+      expect(module.get(DomainEventStore)).toBeDefined()
+      expect(module.get(LockStore)).toBeDefined()
       expect(module.get(TypeOrmConfig)).toBeDefined()
       expect(module.get(Connection)).toBeDefined()
     })
@@ -87,6 +107,11 @@ describe('storage', () => {
       }).compile()
 
       expect(module.get(TYPA_STORAGE_MODULE_OPTIONS)).toBeDefined()
+      expect(module.get(DomainEventPriorityQueueStore)).toBeDefined()
+      expect(module.get(CommandPriorityQueueStore)).toBeDefined()
+      expect(module.get(ConsumerProgressStore)).toBeDefined()
+      expect(module.get(DomainEventStore)).toBeDefined()
+      expect(module.get(LockStore)).toBeDefined()
       expect(module.get(TypeOrmConfig)).toBeDefined()
       expect(module.get(Connection)).toBeDefined()
     })
