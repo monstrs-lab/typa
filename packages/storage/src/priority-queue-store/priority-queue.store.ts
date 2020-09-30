@@ -232,6 +232,7 @@ export class PriorityQueueStore<TItem, TItemIdentifier>
       }
     )
 
+    // @ts-ignore
     const { discriminator: movedQueueDiscriminator } = await priorityQueue.findOne({
       where: {
         indexInPriorityQueue: rows[0].indexInPriorityQueue,
@@ -588,6 +589,7 @@ export class PriorityQueueStore<TItem, TItemIdentifier>
         1
       )
 
+      // @ts-ignore
       affected = updateResult.affected
     } else {
       await priorityQueueItem.update(

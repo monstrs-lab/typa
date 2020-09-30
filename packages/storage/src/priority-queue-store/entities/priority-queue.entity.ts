@@ -11,8 +11,8 @@ export class PriorityQueue {
   indexInPriorityQueue: number
 
   @Column('bigint', { nullable: true })
-  lockUntil: number
+  lockUntil: number | null
 
   @Column('uuid', { nullable: true })
-  lockToken: string
+  lockToken: string | null
 }

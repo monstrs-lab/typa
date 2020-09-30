@@ -1,3 +1,4 @@
+import { Connection }               from 'typeorm'
 import { isEqual }                  from 'lodash'
 import { createConnection }         from 'typeorm'
 import { getMetadataArgsStorage }   from 'typeorm'
@@ -22,8 +23,8 @@ getMetadataArgsStorage().columns.forEach((column) => {
 describe('storage', () => {
   describe('lock-store', () => {
     describe('typeorm', () => {
-      let priorityQueueStore
-      let connection
+      let priorityQueueStore: PriorityQueueStore<unknown, unknown>
+      let connection: Connection
 
       const expirationTime = 250
       const firstAggregateId = uuid()

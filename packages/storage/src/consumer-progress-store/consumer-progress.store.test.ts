@@ -1,3 +1,4 @@
+import { Connection }            from 'typeorm'
 import { createConnection }      from 'typeorm'
 import { v4 as uuid }            from 'uuid'
 
@@ -10,9 +11,9 @@ import { AggregateIdentifier }   from './wolkenkit'
 describe('storage', () => {
   describe('consumer-progress-store', () => {
     let aggregateIdentifier: AggregateIdentifier
+    let consumerProgressStore: ConsumerProgressStore
+    let connection: Connection
     let consumerId: string
-    let consumerProgressStore
-    let connection
 
     beforeEach(async () => {
       connection = await createConnection({

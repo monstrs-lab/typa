@@ -1,3 +1,4 @@
+import { Connection }       from 'typeorm'
 import { createConnection } from 'typeorm'
 
 import { TypeOrmLogger }    from '@typa/logger'
@@ -9,8 +10,8 @@ const sleep = async (timeout: number) => new Promise((resolve) => setTimeout(res
 
 describe('storage', () => {
   describe('lock-store', () => {
-    let lockStore
-    let connection
+    let lockStore: LockStore
+    let connection: Connection
 
     beforeEach(async () => {
       connection = await createConnection({

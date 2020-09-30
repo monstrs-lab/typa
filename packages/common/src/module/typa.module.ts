@@ -52,8 +52,8 @@ export class TypaModule {
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass,
-        useClass: options.useClass,
+        provide: options.useClass!,
+        useClass: options.useClass!,
       },
     ]
   }
@@ -70,7 +70,7 @@ export class TypaModule {
     return {
       provide: TYPA_MODULE_OPTIONS,
       useFactory: (optionsFactory: TypaOptionsFactory) => optionsFactory.createTypaOptions(),
-      inject: [options.useExisting || options.useClass],
+      inject: [options.useExisting! || options.useClass!],
     }
   }
 }

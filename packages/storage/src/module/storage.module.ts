@@ -56,8 +56,8 @@ export class TypaStorageModule {
     return [
       this.createAsyncOptionsProvider(options),
       {
-        provide: options.useClass,
-        useClass: options.useClass,
+        provide: options.useClass!,
+        useClass: options.useClass!,
       },
     ]
   }
@@ -74,7 +74,7 @@ export class TypaStorageModule {
     return {
       provide: TYPA_STORAGE_MODULE_OPTIONS,
       useFactory: (optionsFactory: StorageOptionsFactory) => optionsFactory.createStorageOptions(),
-      inject: [options.useExisting || options.useClass],
+      inject: [options.useExisting! || options.useClass!],
     }
   }
 }

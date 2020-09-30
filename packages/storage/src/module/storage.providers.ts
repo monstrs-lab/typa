@@ -9,7 +9,7 @@ import { StorageModuleOptions }          from './storage-module-options.interfac
 import { TYPA_STORAGE_MODULE_OPTIONS }   from './storage.constants'
 import { TypeOrmConfig }                 from './typeorm.config'
 
-export const createStorageOptionsProvider = (options: StorageModuleOptions): Provider[] => {
+export const createStorageOptionsProvider = (options?: StorageModuleOptions): Provider[] => {
   return [
     {
       provide: TYPA_STORAGE_MODULE_OPTIONS,
