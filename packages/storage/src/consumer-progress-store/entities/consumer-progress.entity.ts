@@ -11,9 +11,9 @@ export class ConsumerProgress {
   @Column()
   revision: number
 
-  @Column({ nullable: true })
-  isReplayingFrom: number
+  @Column({ type: Number, nullable: true })
+  isReplayingFrom: number | null
 
-  @Column({ nullable: true })
-  isReplayingTo: number
+  @Column({ type: Number, nullable: true })
+  isReplayingTo: number | null
 }

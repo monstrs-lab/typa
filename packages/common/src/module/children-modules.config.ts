@@ -11,6 +11,10 @@ export class ChildrenModulesConfig implements StorageOptionsFactory {
   constructor(@Inject(TYPA_MODULE_OPTIONS) private readonly options: TypaModuleOptions) {}
 
   createStorageOptions(): StorageModuleOptions {
-    return this.options.storage
+    return (
+      this.options.storage || {
+        type: 'inmemory',
+      }
+    )
   }
 }

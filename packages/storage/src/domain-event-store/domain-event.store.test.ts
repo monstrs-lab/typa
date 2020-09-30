@@ -1,3 +1,4 @@
+import { Connection }             from 'typeorm'
 import { toArray }                from 'streamtoarray'
 import { createConnection }       from 'typeorm'
 import { getMetadataArgsStorage } from 'typeorm'
@@ -21,7 +22,7 @@ getMetadataArgsStorage().columns.forEach((column) => {
 describe('storage', () => {
   describe('domain-event-store', () => {
     let domainEventStore: DomainEventStore
-    let connection
+    let connection: Connection
 
     beforeEach(async () => {
       connection = await createConnection({

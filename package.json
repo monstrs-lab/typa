@@ -10,7 +10,7 @@
     "checkcommit": "mctl precommit"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.56",
+    "@monstrs/mctl-cli": "0.2.58",
     "@types/jest": "^26.0.14",
     "@types/node": "^14.11.2",
     "@yarnpkg/pnpify": "^2.2.1",
