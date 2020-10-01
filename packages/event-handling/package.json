@@ -1,0 +1,14 @@
+{
+  "name": "@typa/modelling",
+  "version": "0.0.14",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "build": "mctl library build"
+  }
+}
