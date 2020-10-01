@@ -2375,6 +2375,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.20"],
             ["reflect-metadata", "npm:0.1.13"],
             ["rxjs", "npm:6.6.3"],
+            ["streamtoarray", "npm:3.0.0"],
             ["uuid", "npm:8.3.0"],
             ["wolkenkit", "npm:4.0.0-ctp.6"]
           ],

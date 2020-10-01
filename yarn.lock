@@ -1858,6 +1858,7 @@ __metadata:
     lodash: ^4.17.20
     reflect-metadata: 0.1.13
     rxjs: 6.6.3
+    streamtoarray: ^3.0.0
     uuid: ^8.3.0
     wolkenkit: 4.0.0-ctp.6
   peerDependencies:

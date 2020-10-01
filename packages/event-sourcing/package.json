@@ -25,7 +25,8 @@
     "@nestjs/testing": "^7.4.4",
     "@typa/modelling": "workspace:0.0.14",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.3"
+    "rxjs": "6.6.3",
+    "streamtoarray": "^3.0.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.3.2",
