@@ -1,13 +1,15 @@
-import { Inject, Injectable }    from '@nestjs/common'
+import { Inject, Injectable }          from '@nestjs/common'
 
-import { StorageOptionsFactory } from '@typa/storage'
-import { StorageModuleOptions }  from '@typa/storage'
+import { EventSourcingOptionsFactory } from '@typa/event-sourcing'
+import { EventSourcingModuleOptions }  from '@typa/event-sourcing'
+import { StorageOptionsFactory }       from '@typa/storage'
+import { StorageModuleOptions }        from '@typa/storage'
 
-import { TYPA_MODULE_OPTIONS }   from './typa.constants'
-import { TypaModuleOptions }     from './type-module-options.interface'
+import { TYPA_MODULE_OPTIONS }         from './typa.constants'
+import { TypaModuleOptions }           from './type-module-options.interface'
 
 @Injectable()
-export class ChildrenModulesConfig implements StorageOptionsFactory {
+export class ChildrenModulesConfig implements StorageOptionsFactory, EventSourcingOptionsFactory {
   constructor(@Inject(TYPA_MODULE_OPTIONS) private readonly options: TypaModuleOptions) {}
 
   createStorageOptions(): StorageModuleOptions {
@@ -16,5 +18,9 @@ export class ChildrenModulesConfig implements StorageOptionsFactory {
         type: 'inmemory',
       }
     )
+  }
+
+  createEventSourcingOptions(): EventSourcingModuleOptions {
+    return {}
   }
 }

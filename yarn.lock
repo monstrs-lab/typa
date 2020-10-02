@@ -1832,6 +1832,7 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
+    "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
     reflect-metadata: 0.1.13
@@ -1844,7 +1845,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/event-sourcing@workspace:packages/event-sourcing":
+"@typa/event-sourcing@workspace:0.0.14, @typa/event-sourcing@workspace:packages/event-sourcing":
   version: 0.0.0-use.local
   resolution: "@typa/event-sourcing@workspace:packages/event-sourcing"
   dependencies:
