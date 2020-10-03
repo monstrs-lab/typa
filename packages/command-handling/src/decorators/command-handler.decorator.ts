@@ -30,5 +30,9 @@ const addStateParamMetadata = (target, key) => {
   )
 }
 
+export interface CommandHandlerMetadata {
+  command: ICommand
+}
+
 export const CommandHandler = (command: ICommand): MethodDecorator =>
   applyDecorators(SetMetadata(COMMAND_HANDLER_METADATA, { command }), addStateParamMetadata)
