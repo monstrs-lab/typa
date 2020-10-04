@@ -52,9 +52,13 @@ export class CommandHandlingMetadataExplorer implements OnModuleInit {
       const handler = this.createCallbackHandler(instance, key)
 
       this.metadataRegistry.addCommandHandler(
-        instance.constructor.name,
         metadata.command.name,
-        new CommandHandlingMember(metadata.command, handler)
+        new CommandHandlingMember(
+          metadata.command,
+          handler,
+          instance.constructor.name,
+          this.metadataAccessor.getTargetAggregateIdentifier(metadata.command)
+        )
       )
     }
   }

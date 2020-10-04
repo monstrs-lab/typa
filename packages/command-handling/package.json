@@ -12,9 +12,12 @@
     "build": "mctl library build"
   },
   "dependencies": {
+    "@typa/event-sourcing": "workspace:0.0.14",
     "@typa/logger": "workspace:0.0.14",
     "@typa/storage": "workspace:0.0.14",
+    "p-forever": "2.1.0",
     "uuid": "^8.3.0",
+    "validate-value": "^7.1.1",
     "wolkenkit": "4.0.0-ctp.6"
   },
   "devDependencies": {
