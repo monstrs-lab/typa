@@ -13,8 +13,8 @@ import { fetchCommand }                    from './wolkenkit'
 import { keepRenewingLock }                from './wolkenkit'
 
 @Injectable()
-export class CommandHandlingProcessor {
-  private readonly logger = new Logger(CommandHandlingProcessor.name)
+export class CommandProcessor {
+  private readonly logger = new Logger(CommandProcessor.name)
 
   constructor(
     private readonly commandPriorityQueueStore: CommandPriorityQueueStore,

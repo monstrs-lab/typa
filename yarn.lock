@@ -1824,7 +1824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typa/command-handling@workspace:packages/command-handling":
+"@typa/command-handling@workspace:0.0.14, @typa/command-handling@workspace:packages/command-handling":
   version: 0.0.0-use.local
   resolution: "@typa/command-handling@workspace:packages/command-handling"
   dependencies:
@@ -1858,6 +1858,7 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
+    "@typa/command-handling": "workspace:0.0.14"
     "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
