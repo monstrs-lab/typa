@@ -1,2 +1,2 @@
-export * from './command-handling.processor'
+export * from './command.processor'
 export * from './command-handling.worker'

@@ -1,17 +1,17 @@
-import pForever                     from 'p-forever'
-import { Injectable }               from '@nestjs/common'
-import { OnApplicationBootstrap }   from '@nestjs/common'
-import { OnApplicationShutdown }    from '@nestjs/common'
+import pForever                   from 'p-forever'
+import { Injectable }             from '@nestjs/common'
+import { OnApplicationBootstrap } from '@nestjs/common'
+import { OnApplicationShutdown }  from '@nestjs/common'
 
-import { CommandHandlingProcessor } from './command-handling.processor'
+import { CommandProcessor }       from './command.processor'
 
 @Injectable()
-export class CommandHanlingWorker implements OnApplicationBootstrap, OnApplicationShutdown {
+export class CommandHandlingWorker implements OnApplicationBootstrap, OnApplicationShutdown {
   private started = false
 
   private readonly concurrentCommands = 100
 
-  constructor(private readonly commandProcessor: CommandHandlingProcessor) {}
+  constructor(private readonly commandProcessor: CommandProcessor) {}
 
   async onApplicationBootstrap() {
     this.start()

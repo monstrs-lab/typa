@@ -1,15 +1,16 @@
-import { DynamicModule, Module }   from '@nestjs/common'
-import { Provider }                from '@nestjs/common'
+import { DynamicModule, Module }     from '@nestjs/common'
+import { Provider }                  from '@nestjs/common'
 
-import { TypaEventSourcingModule } from '@typa/event-sourcing'
-import { TypaLoggerModule }        from '@typa/logger'
-import { TypaStorageModule }       from '@typa/storage'
+import { TypaCommandHandlingModule } from '@typa/command-handling'
+import { TypaEventSourcingModule }   from '@typa/event-sourcing'
+import { TypaLoggerModule }          from '@typa/logger'
+import { TypaStorageModule }         from '@typa/storage'
 
-import { ChildrenModulesConfig }   from './children-modules.config'
-import { TYPA_MODULE_OPTIONS }     from './typa.constants'
-import { TypaModuleOptions }       from './type-module-options.interface'
-import { TypaModuleAsyncOptions }  from './type-module-options.interface'
-import { TypaOptionsFactory }      from './type-module-options.interface'
+import { ChildrenModulesConfig }     from './children-modules.config'
+import { TYPA_MODULE_OPTIONS }       from './typa.constants'
+import { TypaModuleOptions }         from './type-module-options.interface'
+import { TypaModuleAsyncOptions }    from './type-module-options.interface'
+import { TypaOptionsFactory }        from './type-module-options.interface'
 
 @Module({})
 export class TypaModule {
@@ -29,6 +30,7 @@ export class TypaModule {
         TypaLoggerModule.register(),
         TypaStorageModule.register(options.storage),
         TypaEventSourcingModule.register(),
+        TypaCommandHandlingModule.register(),
       ],
     }
   }
@@ -44,6 +46,9 @@ export class TypaModule {
           useExisting: ChildrenModulesConfig,
         }),
         TypaEventSourcingModule.registerAsync({
+          useExisting: ChildrenModulesConfig,
+        }),
+        TypaCommandHandlingModule.registerAsync({
           useExisting: ChildrenModulesConfig,
         }),
       ],
