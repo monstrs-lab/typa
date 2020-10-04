@@ -13,7 +13,24 @@ export type CommandContextHandlingMember = <TState extends State>(
 ) => Promise<void>
 
 export class CommandHandlingMember {
-  constructor(private command: ICommand, private handler: CommandContextHandlingMember) {}
+  constructor(
+    private command: ICommand,
+    private handler: CommandContextHandlingMember,
+    private aggregateName,
+    private targetAggregateIdentifier: string = 'id'
+  ) {}
+
+  getCommandName() {
+    return (this.command as any).name
+  }
+
+  getAggregateName() {
+    return this.aggregateName
+  }
+
+  getTargetAggregateIdentifier() {
+    return this.targetAggregateIdentifier
+  }
 
   async handle<TState extends State, TCommandData extends CommandData>(
     state: TState,

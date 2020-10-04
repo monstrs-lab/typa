@@ -1832,12 +1832,15 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
+    "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
     "@typa/modelling": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
+    p-forever: 2.1.0
     reflect-metadata: 0.1.13
     rxjs: 6.6.3
     uuid: ^8.3.0
+    validate-value: ^7.1.1
     wolkenkit: 4.0.0-ctp.6
   peerDependencies:
     "@nestjs/common": ^7.3.2
@@ -3587,7 +3590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^6.10.0, ajv@npm:^6.10.2, ajv@npm:^6.12.3, ajv@npm:^6.12.4":
+"ajv@npm:6.12.5, ajv@npm:^6.10.0, ajv@npm:^6.10.2, ajv@npm:^6.12.3, ajv@npm:^6.12.4":
   version: 6.12.5
   resolution: "ajv@npm:6.12.5"
   dependencies:
@@ -9657,6 +9660,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"json-schema@npm:*, json-schema@npm:0.2.5":
+  version: 0.2.5
+  resolution: "json-schema@npm:0.2.5"
+  checksum: 553d8f98467d27b7a15445e1b21b0edc1ab3fc374b80f3f659b672b65cf132a4854b6d676625f221d80340aa922cd37c0cff1ad3ad5389474f4a5c1079d2c97b
+  languageName: node
+  linkType: hard
+
 "json-schema@npm:0.2.3":
   version: 0.2.3
   resolution: "json-schema@npm:0.2.3"
@@ -14972,6 +14982,16 @@ typescript@^3.2.4:
     jjv: 1.0.2
     jjve: 0.5.2
   checksum: 7af46e790510e95dfc70412716e1f96d8ff64cf7e9cb516ce633c6e32d79adee0a2d5e920833d47bce01ba877e10cb4a0b9784a5e29dd8abff1989b139e9b7d2
+  languageName: node
+  linkType: hard
+
+"validate-value@npm:^7.1.1":
+  version: 7.2.0
+  resolution: "validate-value@npm:7.2.0"
+  dependencies:
+    ajv: 6.12.5
+    json-schema: 0.2.5
+  checksum: 421191385b3a45a71e5227c7f605c4e1710dcca4533a0644b467240f209dd1cee276c0cccf2cdd4d2a3cae04cfd699c4c786130d48a1ea26ab1b36afe7eaf748
   languageName: node
   linkType: hard
 

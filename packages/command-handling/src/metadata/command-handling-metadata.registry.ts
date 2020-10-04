@@ -8,21 +8,17 @@ type CommandMessageHandlerMember = any
 export class CommandHandlingMetadataRegistry {
   private logger = new Logger(CommandHandlingMetadataRegistry.name)
 
-  private commandHandlers: Map<string, Map<string, CommandMessageHandlerMember>> = new Map()
+  private commandHandlers: Map<string, CommandMessageHandlerMember> = new Map()
 
-  addCommandHandler(instanceName, command, handler: CommandMessageHandlerMember) {
-    if (!this.commandHandlers.has(instanceName)) {
-      this.commandHandlers.set(instanceName, new Map())
+  addCommandHandler(commandName, handler: CommandMessageHandlerMember) {
+    if (this.commandHandlers.has(commandName)) {
+      this.logger.warning(`Command handler for command ${commandName} already exists`)
     }
 
-    if (this.commandHandlers.get(instanceName)!.has(command)) {
-      this.logger.warning(`Command handler for command ${command} already exists`)
-    }
-
-    this.commandHandlers.get(instanceName)!.set(command, handler)
+    this.commandHandlers.set(commandName, handler)
   }
 
-  getCommandHandler(instanceName, command) {
-    return this.commandHandlers.get(instanceName)?.get(command)
+  getCommandHandler(commandName) {
+    return this.commandHandlers.get(commandName)
   }
 }

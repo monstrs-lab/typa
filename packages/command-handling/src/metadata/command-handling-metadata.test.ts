@@ -60,16 +60,14 @@ describe('command-handling', () => {
 
       it('should store command handler metadata', async () => {
         expect(
-          module
-            .get(CommandHandlingMetadataRegistry)
-            .getCommandHandler(TestAggregate.name, TestCommand.name)
+          module.get(CommandHandlingMetadataRegistry).getCommandHandler(TestCommand.name)
         ).toBeDefined()
       })
 
       it('should handle command', async () => {
         const handler = module
           .get(CommandHandlingMetadataRegistry)
-          .getCommandHandler(TestAggregate.name, TestCommand.name)
+          .getCommandHandler(TestCommand.name)
 
         await expect(handler.handle({}, { data: { id: 'test' } })).resolves.toEqual(
           expect.arrayContaining([
