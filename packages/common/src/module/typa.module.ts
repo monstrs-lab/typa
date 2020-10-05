@@ -2,6 +2,7 @@ import { DynamicModule, Module }     from '@nestjs/common'
 import { Provider }                  from '@nestjs/common'
 
 import { TypaCommandHandlingModule } from '@typa/command-handling'
+import { TypaEventHandlingModule }   from '@typa/event-handling'
 import { TypaEventSourcingModule }   from '@typa/event-sourcing'
 import { TypaLoggerModule }          from '@typa/logger'
 import { TypaStorageModule }         from '@typa/storage'
@@ -31,6 +32,7 @@ export class TypaModule {
         TypaStorageModule.register(options.storage),
         TypaEventSourcingModule.register(),
         TypaCommandHandlingModule.register(),
+        TypaEventHandlingModule.register(),
       ],
     }
   }
@@ -49,6 +51,9 @@ export class TypaModule {
           useExisting: ChildrenModulesConfig,
         }),
         TypaCommandHandlingModule.registerAsync({
+          useExisting: ChildrenModulesConfig,
+        }),
+        TypaEventHandlingModule.registerAsync({
           useExisting: ChildrenModulesConfig,
         }),
       ],

@@ -1,6 +1,6 @@
 import { SetMetadata, applyDecorators }    from '@nestjs/common'
 
-import { IEvent }                          from '@typa/modelling'
+import { IEvent }                          from '@typa/event-handling'
 
 import { DomainEventHandlerParamType }     from './domain-event-handler-param.type'
 import { DOMAIN_EVENT_ARGS_METADATA }      from './domain-event.decorator'

@@ -1,16 +1,16 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable }            from '@nestjs/common'
 
-import { Logger }     from '@typa/logger'
+import { Logger }                from '@typa/logger'
 
-type CommandMessageHandlerMember = any
+import { CommandHandlingMember } from './command-handling.member'
 
 @Injectable()
 export class CommandHandlingMetadataRegistry {
   private logger = new Logger(CommandHandlingMetadataRegistry.name)
 
-  private commandHandlers: Map<string, CommandMessageHandlerMember> = new Map()
+  private commandHandlers: Map<string, CommandHandlingMember> = new Map()
 
-  addCommandHandler(commandName, handler: CommandMessageHandlerMember) {
+  addCommandHandler(commandName, handler: CommandHandlingMember) {
     if (this.commandHandlers.has(commandName)) {
       this.logger.warning(`Command handler for command ${commandName} already exists`)
     }

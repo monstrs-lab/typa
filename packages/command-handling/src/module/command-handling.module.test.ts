@@ -3,6 +3,7 @@
 import { Module }                               from '@nestjs/common'
 import { Test }                                 from '@nestjs/testing'
 
+import { TypaEventHandlingModule }              from '@typa/event-handling'
 import { TypaEventSourcingModule }              from '@typa/event-sourcing'
 import { TypaStorageModule }                    from '@typa/storage'
 
@@ -24,6 +25,7 @@ describe('command-handling', () => {
         imports: [
           TypaStorageModule.register(),
           TypaEventSourcingModule.register(),
+          TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.register(),
         ],
       }).compile()
@@ -37,6 +39,7 @@ describe('command-handling', () => {
         imports: [
           TypaStorageModule.register(),
           TypaEventSourcingModule.register(),
+          TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.registerAsync({
             useFactory: () => ({}),
           }),
@@ -58,6 +61,7 @@ describe('command-handling', () => {
         imports: [
           TypaStorageModule.register(),
           TypaEventSourcingModule.register(),
+          TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.registerAsync({
             useClass: TestCommandHandlingModuleOptions,
           }),
@@ -82,6 +86,7 @@ describe('command-handling', () => {
         imports: [
           TypaStorageModule.register(),
           TypaEventSourcingModule.register(),
+          TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.registerAsync({
             imports: [
               {

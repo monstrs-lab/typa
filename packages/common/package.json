@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@typa/command-handling": "workspace:0.0.14",
+    "@typa/event-handling": "workspace:0.0.14",
     "@typa/event-sourcing": "workspace:0.0.14",
     "@typa/logger": "workspace:0.0.14",
     "@typa/storage": "workspace:0.0.14"

@@ -1,6 +1,7 @@
 import { Injectable }                      from '@nestjs/common'
 import { Value }                           from 'validate-value'
 
+import { DomainEventPublisher }            from '@typa/event-handling'
 import { Repository }                      from '@typa/event-sourcing'
 import { Logger }                          from '@typa/logger'
 import { CommandPriorityQueueStore }       from '@typa/storage'
@@ -19,6 +20,7 @@ export class CommandProcessor {
   constructor(
     private readonly commandPriorityQueueStore: CommandPriorityQueueStore,
     private readonly metadataRegistry: CommandHandlingMetadataRegistry,
+    private readonly domainEventPublisher: DomainEventPublisher,
     private readonly repository: Repository
   ) {}
 
@@ -61,7 +63,9 @@ export class CommandProcessor {
         })
       })()
 
-      await handleCommandPromise
+      const domainEvents = await handleCommandPromise
+
+      await this.domainEventPublisher.publishDomainEvents(domainEvents)
     } catch (error) {
       this.logger.error('Failed to handle command: %s', error, { command })
     } finally {

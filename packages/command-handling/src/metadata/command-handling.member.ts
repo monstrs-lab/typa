@@ -2,7 +2,7 @@ import { Command }     from 'wolkenkit/build/lib/common/elements/Command'
 import { CommandData } from 'wolkenkit/build/lib/common/elements/CommandData'
 import { State }       from 'wolkenkit/build/lib/common/elements/State'
 
-import { IEvent }      from '@typa/modelling'
+import { IEvent }      from '@typa/event-handling'
 
 import { ICommand }    from '../interfaces'
 
