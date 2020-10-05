@@ -13,7 +13,7 @@ import { CommandHandlingMember }           from './command-handling.member'
 
 @Injectable()
 export class CommandHandlingMetadataExplorer implements OnModuleInit {
-  private readonly eventSourcingHandlerParamsFactory = new CommandHandlerParamsFactory()
+  private readonly commandHandlerParamsFactory = new CommandHandlerParamsFactory()
 
   constructor(
     private readonly externalContextCreator: ExternalContextCreator,
@@ -73,7 +73,7 @@ export class CommandHandlingMetadataExplorer implements OnModuleInit {
       return Object.getPrototypeOf(instance)[key].call(context, ...args)
     }
 
-    const paramsFactory = this.eventSourcingHandlerParamsFactory
+    const paramsFactory = this.commandHandlerParamsFactory
     const contextOptions = undefined
 
     return this.externalContextCreator.create<Record<number, ParamMetadata>, 'domainEvents'>(

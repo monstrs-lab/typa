@@ -1832,9 +1832,9 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
+    "@typa/event-handling": "workspace:0.0.14"
     "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
-    "@typa/modelling": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
     p-forever: 2.1.0
     reflect-metadata: 0.1.13
@@ -1859,11 +1859,35 @@ __metadata:
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
     "@typa/command-handling": "workspace:0.0.14"
+    "@typa/event-handling": "workspace:0.0.14"
     "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
     reflect-metadata: 0.1.13
     rxjs: 6.6.3
+  peerDependencies:
+    "@nestjs/common": ^7.3.2
+    "@nestjs/core": ^7.3.2
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.3.3
+  languageName: unknown
+  linkType: soft
+
+"@typa/event-handling@workspace:0.0.14, @typa/event-handling@workspace:packages/event-handling":
+  version: 0.0.0-use.local
+  resolution: "@typa/event-handling@workspace:packages/event-handling"
+  dependencies:
+    "@monstrs/mctl-cli": 0.2.58
+    "@nestjs/common": ^7.4.4
+    "@nestjs/core": ^7.4.4
+    "@nestjs/testing": ^7.4.4
+    "@typa/logger": "workspace:0.0.14"
+    "@typa/storage": "workspace:0.0.14"
+    p-forever: 2.1.0
+    reflect-metadata: 0.1.13
+    rxjs: 6.6.3
+    validate-value: ^7.1.1
+    wolkenkit: 4.0.0-ctp.6
   peerDependencies:
     "@nestjs/common": ^7.3.2
     "@nestjs/core": ^7.3.2
@@ -1880,8 +1904,8 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
+    "@typa/event-handling": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
-    "@typa/modelling": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
     lodash: ^4.17.20
     reflect-metadata: 0.1.13
@@ -1915,12 +1939,6 @@ __metadata:
     "@nestjs/core": ^7.3.2
     reflect-metadata: ^0.1.12
     rxjs: ^6.3.3
-  languageName: unknown
-  linkType: soft
-
-"@typa/modelling@workspace:0.0.14, @typa/modelling@workspace:packages/event-handling":
-  version: 0.0.0-use.local
-  resolution: "@typa/modelling@workspace:packages/event-handling"
   languageName: unknown
   linkType: soft
 

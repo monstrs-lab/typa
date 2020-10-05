@@ -2,7 +2,7 @@ import { DomainEvent }     from 'wolkenkit/build/lib/common/elements/DomainEvent
 import { DomainEventData } from 'wolkenkit/build/lib/common/elements/DomainEventData'
 import { State }           from 'wolkenkit/build/lib/common/elements/State'
 
-import { IEvent }          from '@typa/modelling'
+import { IEvent }          from '@typa/event-handling'
 
 export type EventSourcingContextHandlingMember = <TState extends State>(
   ...args: Array<TState | IEvent>
