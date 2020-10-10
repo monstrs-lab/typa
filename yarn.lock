@@ -1863,6 +1863,7 @@ __metadata:
     "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
     "@typa/projection": "workspace:0.0.14"
+    "@typa/query-handling": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
     reflect-metadata: 0.1.13
     rxjs: 6.6.3
@@ -1956,6 +1957,25 @@ __metadata:
     reflect-metadata: 0.1.13
     rxjs: 6.6.3
     typeorm: ^0.2
+  peerDependencies:
+    "@nestjs/common": ^7.3.2
+    "@nestjs/core": ^7.3.2
+    reflect-metadata: ^0.1.12
+    rxjs: ^6.3.3
+  languageName: unknown
+  linkType: soft
+
+"@typa/query-handling@workspace:0.0.14, @typa/query-handling@workspace:packages/query-handling":
+  version: 0.0.0-use.local
+  resolution: "@typa/query-handling@workspace:packages/query-handling"
+  dependencies:
+    "@monstrs/mctl-cli": 0.2.58
+    "@nestjs/common": ^7.4.4
+    "@nestjs/core": ^7.4.4
+    "@nestjs/testing": ^7.4.4
+    "@typa/logger": "workspace:0.0.14"
+    reflect-metadata: 0.1.13
+    rxjs: 6.6.3
   peerDependencies:
     "@nestjs/common": ^7.3.2
     "@nestjs/core": ^7.3.2
