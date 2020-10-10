@@ -48,6 +48,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       entityPrefix: options.entityPrefix,
       logger: new TypeOrmLogger(),
       migrations: MigrationsStorage.getMigrations(),
+      autoLoadEntities: true,
       migrationsRun: true,
       synchronize: false,
       dropSchema: false,
@@ -78,6 +79,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       synchronize: true,
       dropSchema: true,
       logger: new TypeOrmLogger(),
+      autoLoadEntities: true,
       migrations: MigrationsStorage.getMigrations(),
       migrationsRun: true,
       entities: [

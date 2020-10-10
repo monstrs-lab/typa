@@ -22,5 +22,5 @@ export interface EventSourcingHandlerMetadata {
 
 export const EVENT_SOURCING_HANDLER_METADATA = '__eventSourcingHandler__'
 
-export const EventSourcingHandler = (event: IEvent): MethodDecorator =>
+export const EventSourcingHandler = (event: Partial<IEvent>): MethodDecorator =>
   applyDecorators(SetMetadata(EVENT_SOURCING_HANDLER_METADATA, { event }), addStateParamMetadata)

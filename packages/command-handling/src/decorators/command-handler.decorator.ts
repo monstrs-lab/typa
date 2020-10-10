@@ -1,6 +1,6 @@
 import { SetMetadata, applyDecorators } from '@nestjs/common'
 
-import { ICommand }                     from '../interfaces'
+import { ICommandConstructor }          from '../interfaces'
 import { CommandHandlerParamType }      from './command-handler-param.type'
 import { assignMetadata }               from './param.utils'
 
@@ -31,8 +31,8 @@ const addStateParamMetadata = (target, key) => {
 }
 
 export interface CommandHandlerMetadata {
-  command: ICommand
+  command: ICommandConstructor
 }
 
-export const CommandHandler = (command: ICommand): MethodDecorator =>
+export const CommandHandler = (command: ICommandConstructor): MethodDecorator =>
   applyDecorators(SetMetadata(COMMAND_HANDLER_METADATA, { command }), addStateParamMetadata)

@@ -1,10 +1,11 @@
-import { Command }     from 'wolkenkit/build/lib/common/elements/Command'
-import { CommandData } from 'wolkenkit/build/lib/common/elements/CommandData'
-import { State }       from 'wolkenkit/build/lib/common/elements/State'
+import { Command }             from 'wolkenkit/build/lib/common/elements/Command'
+import { CommandData }         from 'wolkenkit/build/lib/common/elements/CommandData'
+import { State }               from 'wolkenkit/build/lib/common/elements/State'
 
-import { IEvent }      from '@typa/event-handling'
+import { IEvent }              from '@typa/event-handling'
 
-import { ICommand }    from '../interfaces'
+import { ICommandConstructor } from '../interfaces'
+import { ICommand }            from '../interfaces'
 
 type ApplyEvent = (event: IEvent) => void
 
@@ -14,7 +15,7 @@ export type CommandContextHandlingMember = <TState extends State>(
 
 export class CommandHandlingMember {
   constructor(
-    private command: ICommand,
+    private command: ICommandConstructor,
     private handler: CommandContextHandlingMember,
     private aggregateName,
     private targetAggregateIdentifier: string = 'id'
