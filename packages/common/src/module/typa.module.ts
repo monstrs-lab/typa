@@ -5,6 +5,7 @@ import { TypaCommandHandlingModule } from '@typa/command-handling'
 import { TypaEventHandlingModule }   from '@typa/event-handling'
 import { TypaEventSourcingModule }   from '@typa/event-sourcing'
 import { TypaLoggerModule }          from '@typa/logger'
+import { TypaQueryHandlingModule }   from '@typa/query-handling'
 import { TypaStorageModule }         from '@typa/storage'
 
 import { ChildrenModulesConfig }     from './children-modules.config'
@@ -33,6 +34,7 @@ export class TypaModule {
         TypaEventSourcingModule.register(),
         TypaCommandHandlingModule.register(),
         TypaEventHandlingModule.register(),
+        TypaQueryHandlingModule.register(),
       ],
     }
   }
@@ -54,6 +56,9 @@ export class TypaModule {
           useExisting: ChildrenModulesConfig,
         }),
         TypaEventHandlingModule.registerAsync({
+          useExisting: ChildrenModulesConfig,
+        }),
+        TypaQueryHandlingModule.registerAsync({
           useExisting: ChildrenModulesConfig,
         }),
       ],

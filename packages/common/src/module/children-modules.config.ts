@@ -6,6 +6,8 @@ import { EventHandlingOptionsFactory }   from '@typa/event-handling'
 import { EventHandlingModuleOptions }    from '@typa/event-handling'
 import { EventSourcingOptionsFactory }   from '@typa/event-sourcing'
 import { EventSourcingModuleOptions }    from '@typa/event-sourcing'
+import { QueryHandlingOptionsFactory }   from '@typa/query-handling'
+import { QueryHandlingModuleOptions }    from '@typa/query-handling'
 import { StorageOptionsFactory }         from '@typa/storage'
 import { StorageModuleOptions }          from '@typa/storage'
 
@@ -18,7 +20,8 @@ export class ChildrenModulesConfig
     StorageOptionsFactory,
     EventSourcingOptionsFactory,
     CommandHandlingOptionsFactory,
-    EventHandlingOptionsFactory {
+    EventHandlingOptionsFactory,
+    QueryHandlingOptionsFactory {
   constructor(@Inject(TYPA_MODULE_OPTIONS) private readonly options: TypaModuleOptions) {}
 
   createStorageOptions(): StorageModuleOptions {
@@ -38,6 +41,10 @@ export class ChildrenModulesConfig
   }
 
   createEventHandlingOptions(): EventHandlingModuleOptions {
+    return {}
+  }
+
+  createQueryHandlingOptions(): QueryHandlingModuleOptions {
     return {}
   }
 }
