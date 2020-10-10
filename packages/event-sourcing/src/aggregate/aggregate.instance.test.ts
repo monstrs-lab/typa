@@ -192,25 +192,6 @@ describe('event-sourcing', () => {
         )
       })
 
-      it('throws an error if the event is not known.', async () => {
-        const domainEvent = buildDomainEvent({
-          contextIdentifier: { name: 'test' },
-          aggregateIdentifier: { name: TestAggregate.name, id: aggregateId },
-          name: 'nonExistent',
-          data: {
-            strategy: 'succeed',
-          },
-          metadata: {
-            initiator: { user: { id: 'jane.doe', claims: { sub: 'jane.doe' } } },
-            revision: 1,
-          },
-        })
-
-        expect(aggregateInstance.applyDomainEvent(domainEvent)).rejects.toThrow(
-          `Failed to apply unknown domain event 'nonExistent' in 'test.TestAggregate'.`
-        )
-      })
-
       it('returns the next state.', async () => {
         const domainEvent = buildDomainEvent({
           contextIdentifier: { name: 'test' },

@@ -1,5 +1,7 @@
 import { cloneDeep }                     from 'lodash'
 
+import { Logger }                        from '@typa/logger'
+
 import { EventSourcingMetadataRegistry } from '../metadata'
 import { EventSourcedAggregate }         from './event-sourced.aggregate'
 import { SnapshotStrategy }              from './wolkenkit'
@@ -16,6 +18,8 @@ import { Snapshot }                      from './wolkenkit'
 import { errors }                        from './wolkenkit'
 
 export class AggregateInstance<TState extends State> {
+  private readonly logger = new Logger(AggregateInstance.name)
+
   public unstoredDomainEvents: DomainEventWithState<DomainEventData, TState>[] = []
 
   public revision: number = 0
@@ -208,13 +212,11 @@ export class AggregateInstance<TState extends State> {
     )
 
     if (!eventSourcingHandler) {
-      if (domainEvent.name.endsWith('Rejected') || domainEvent.name.endsWith('Failed')) {
-        return this.state
-      }
-
-      throw new errors.DomainEventUnknown(
-        `Failed to apply unknown domain event '${domainEvent.name}' in '${this.contextIdentifier.name}.${this.aggregateIdentifier.name}'.`
+      this.logger.debug(
+        `Event sourcing handler not found for '${domainEvent.name}' in '${this.contextIdentifier.name}.${this.aggregateIdentifier.name}'.`
       )
+
+      return this.state
     }
 
     const newStatePartial = await eventSourcingHandler.handle(this.state, domainEvent)

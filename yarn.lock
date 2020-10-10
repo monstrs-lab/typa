@@ -1862,6 +1862,7 @@ __metadata:
     "@typa/event-handling": "workspace:0.0.14"
     "@typa/event-sourcing": "workspace:0.0.14"
     "@typa/logger": "workspace:0.0.14"
+    "@typa/projection": "workspace:0.0.14"
     "@typa/storage": "workspace:0.0.14"
     reflect-metadata: 0.1.13
     rxjs: 6.6.3
@@ -1942,7 +1943,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/projection@workspace:packages/projection":
+"@typa/projection@workspace:0.0.14, @typa/projection@workspace:packages/projection":
   version: 0.0.0-use.local
   resolution: "@typa/projection@workspace:packages/projection"
   dependencies:
@@ -2875,6 +2876,61 @@ __metadata:
   checksum: a8cfced7b0cc5b2d2fd8b5706bacef9cd748f3cf4ae31a9f25c7cd21e4c2bdaeb418d13202fc65a138265f33e8b658f7ddfee3f2685f13e8915e8406448289da
   languageName: node
   linkType: hard
+
+"@videostore/domain@workspace:0.0.1, @videostore/domain@workspace:samples/videostore/domain":
+  version: 0.0.0-use.local
+  resolution: "@videostore/domain@workspace:samples/videostore/domain"
+  dependencies:
+    "@nestjs/common": ^7.4.4
+    "@nestjs/core": ^7.4.4
+    "@typa/common": "workspace:0.0.14"
+  languageName: unknown
+  linkType: soft
+
+"@videostore/projection@workspace:0.0.1, @videostore/projection@workspace:samples/videostore/projection":
+  version: 0.0.0-use.local
+  resolution: "@videostore/projection@workspace:samples/videostore/projection"
+  dependencies:
+    "@nestjs/common": ^7.4.4
+    "@nestjs/core": ^7.4.4
+    "@typa/common": "workspace:0.0.14"
+    "@types/node": ^14.11.8
+    typeorm: ^0.2
+  languageName: unknown
+  linkType: soft
+
+"@videostore/rest-adapter@workspace:0.0.1, @videostore/rest-adapter@workspace:samples/videostore/rest-adapter":
+  version: 0.0.0-use.local
+  resolution: "@videostore/rest-adapter@workspace:samples/videostore/rest-adapter"
+  dependencies:
+    "@nestjs/common": ^7.4.4
+    "@nestjs/core": ^7.4.4
+    "@typa/common": "workspace:0.0.14"
+    "@videostore/domain": "workspace:0.0.1"
+    class-validator: ^0.12.2
+    uuid: ^8.3.0
+  languageName: unknown
+  linkType: soft
+
+"@videostore/service@workspace:samples/videostore/service":
+  version: 0.0.0-use.local
+  resolution: "@videostore/service@workspace:samples/videostore/service"
+  dependencies:
+    "@monstrs/mctl-cli": 0.2.58
+    "@nestjs/common": ^7.4.4
+    "@nestjs/core": ^7.4.4
+    "@nestjs/platform-express": ^7.4.4
+    "@typa/common": "workspace:0.0.14"
+    "@videostore/domain": "workspace:0.0.1"
+    "@videostore/projection": "workspace:0.0.1"
+    "@videostore/rest-adapter": "workspace:0.0.1"
+    cli-color: "*"
+    flaschenpost: "*"
+    reflect-metadata: 0.1.13
+    rxjs: 6.6.3
+    sqlite3: ^5.0.0
+  languageName: unknown
+  linkType: soft
 
 "@webassemblyjs/ast@npm:1.9.0":
   version: 1.9.0
@@ -4978,7 +5034,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"class-validator@npm:*":
+"class-validator@npm:*, class-validator@npm:^0.12.2":
   version: 0.12.2
   resolution: "class-validator@npm:0.12.2"
   dependencies:

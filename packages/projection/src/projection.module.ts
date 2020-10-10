@@ -12,7 +12,9 @@ export class TypaProjectionModule {
 
     return {
       module: TypaProjectionModule,
-      imports: [TypeOrmModule.forFeature(entities)],
+      imports: [
+        TypeOrmModule.forFeature(Array.isArray(entities) ? entities : Object.values(entities)),
+      ],
     }
   }
 }

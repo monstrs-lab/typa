@@ -53,6 +53,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@samples/logger",
         "reference": "workspace:samples/logger"
+      },
+      {
+        "name": "@videostore/domain",
+        "reference": "workspace:samples/videostore/domain"
+      },
+      {
+        "name": "@videostore/projection",
+        "reference": "workspace:samples/videostore/projection"
+      },
+      {
+        "name": "@videostore/rest-adapter",
+        "reference": "workspace:samples/videostore/rest-adapter"
+      },
+      {
+        "name": "@videostore/service",
+        "reference": "workspace:samples/videostore/service"
       }
     ],
     "enableTopLevelFallback": true,
@@ -64,8 +80,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@typa/event-handling", ["virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/event-handling", "workspace:packages/event-handling"]],
       ["@typa/event-sourcing", ["virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/event-sourcing", "workspace:packages/event-sourcing"]],
       ["@typa/logger", ["virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/logger", "workspace:packages/logger"]],
-      ["@typa/projection", ["workspace:packages/projection"]],
+      ["@typa/projection", ["virtual:3ae18f67d28211b746f80d53b58bd202dc1bf989fd8d4eb0fc2f1cba3d43c446354bc1b40bef6e67a2233c19d1b3bad3e3d8ecf5f8effe725e3fb86e9ec51ee5#workspace:packages/projection", "workspace:packages/projection"]],
       ["@typa/storage", ["virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/storage", "workspace:packages/storage"]],
+      ["@videostore/domain", ["workspace:samples/videostore/domain"]],
+      ["@videostore/projection", ["workspace:samples/videostore/projection"]],
+      ["@videostore/rest-adapter", ["workspace:samples/videostore/rest-adapter"]],
+      ["@videostore/service", ["workspace:samples/videostore/service"]],
       ["typa", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -2390,6 +2410,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typa/event-handling", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/event-handling"],
             ["@typa/event-sourcing", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/event-sourcing"],
             ["@typa/logger", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/logger"],
+            ["@typa/projection", "virtual:3ae18f67d28211b746f80d53b58bd202dc1bf989fd8d4eb0fc2f1cba3d43c446354bc1b40bef6e67a2233c19d1b3bad3e3d8ecf5f8effe725e3fb86e9ec51ee5#workspace:packages/projection"],
             ["@typa/storage", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/storage"],
             ["@types/nestjs__common", null],
             ["@types/nestjs__core", null],
@@ -2422,6 +2443,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typa/event-handling", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/event-handling"],
             ["@typa/event-sourcing", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/event-sourcing"],
             ["@typa/logger", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/logger"],
+            ["@typa/projection", "virtual:3ae18f67d28211b746f80d53b58bd202dc1bf989fd8d4eb0fc2f1cba3d43c446354bc1b40bef6e67a2233c19d1b3bad3e3d8ecf5f8effe725e3fb86e9ec51ee5#workspace:packages/projection"],
             ["@typa/storage", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/storage"],
             ["reflect-metadata", "npm:0.1.13"],
             ["rxjs", "npm:6.6.3"]
@@ -2586,6 +2608,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@typa/projection", [
+        ["virtual:3ae18f67d28211b746f80d53b58bd202dc1bf989fd8d4eb0fc2f1cba3d43c446354bc1b40bef6e67a2233c19d1b3bad3e3d8ecf5f8effe725e3fb86e9ec51ee5#workspace:packages/projection", {
+          "packageLocation": "./.yarn/$$virtual/@typa-projection-virtual-c043eeec65/1/packages/projection/",
+          "packageDependencies": [
+            ["@typa/projection", "virtual:3ae18f67d28211b746f80d53b58bd202dc1bf989fd8d4eb0fc2f1cba3d43c446354bc1b40bef6e67a2233c19d1b3bad3e3d8ecf5f8effe725e3fb86e9ec51ee5#workspace:packages/projection"],
+            ["@monstrs/mctl-cli", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:0.2.58"],
+            ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/testing", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/typeorm", "virtual:ac757a59710bb3998ccefc49443edeb1889264c6966063367f7873730465fd41d23459ea07f281142cb78b43b6b47a80d44b763a1750cca92a2a33f6fb5407cc#npm:7.1.4"],
+            ["@typa/storage", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#workspace:packages/storage"],
+            ["@types/nestjs__common", null],
+            ["@types/nestjs__core", null],
+            ["@types/reflect-metadata", null],
+            ["@types/rxjs", null],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["rxjs", "npm:6.6.3"],
+            ["typeorm", "npm:0.2.26"]
+          ],
+          "packagePeers": [
+            "@nestjs/common",
+            "@nestjs/core",
+            "@types/nestjs__common",
+            "@types/nestjs__core",
+            "@types/reflect-metadata",
+            "@types/rxjs",
+            "reflect-metadata",
+            "rxjs"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/projection", {
           "packageLocation": "./packages/projection/",
           "packageDependencies": [
@@ -3761,6 +3813,69 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-visitor-keys", "npm:2.0.0"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["@videostore/domain", [
+        ["workspace:samples/videostore/domain", {
+          "packageLocation": "./samples/videostore/domain/",
+          "packageDependencies": [
+            ["@videostore/domain", "workspace:samples/videostore/domain"],
+            ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@typa/common", "virtual:8bf8750b7f72bdb8e708d8656c5c1314e66b497953f35e366567e76ff0381cf87a9c6184a0bd72fe489e0c87aff80adf79d6f0d56de841e65af793a553bc4b98#workspace:packages/common"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@videostore/projection", [
+        ["workspace:samples/videostore/projection", {
+          "packageLocation": "./samples/videostore/projection/",
+          "packageDependencies": [
+            ["@videostore/projection", "workspace:samples/videostore/projection"],
+            ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@typa/common", "virtual:8bf8750b7f72bdb8e708d8656c5c1314e66b497953f35e366567e76ff0381cf87a9c6184a0bd72fe489e0c87aff80adf79d6f0d56de841e65af793a553bc4b98#workspace:packages/common"],
+            ["@types/node", "npm:14.11.1"],
+            ["typeorm", "npm:0.2.26"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@videostore/rest-adapter", [
+        ["workspace:samples/videostore/rest-adapter", {
+          "packageLocation": "./samples/videostore/rest-adapter/",
+          "packageDependencies": [
+            ["@videostore/rest-adapter", "workspace:samples/videostore/rest-adapter"],
+            ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@typa/common", "virtual:8bf8750b7f72bdb8e708d8656c5c1314e66b497953f35e366567e76ff0381cf87a9c6184a0bd72fe489e0c87aff80adf79d6f0d56de841e65af793a553bc4b98#workspace:packages/common"],
+            ["@videostore/domain", "workspace:samples/videostore/domain"],
+            ["class-validator", "npm:0.12.2"],
+            ["uuid", "npm:8.3.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@videostore/service", [
+        ["workspace:samples/videostore/service", {
+          "packageLocation": "./samples/videostore/service/",
+          "packageDependencies": [
+            ["@videostore/service", "workspace:samples/videostore/service"],
+            ["@monstrs/mctl-cli", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:0.2.58"],
+            ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/platform-express", "virtual:14de6880fadc40a509a1bd0305c9db846f1c4b8c238e9df1536696ff73b1e53d0c2ea9519bc424362ce20b43cc40fa973c40d223b07a2328ffdf527f43c6f9da#npm:7.4.4"],
+            ["@typa/common", "virtual:8bf8750b7f72bdb8e708d8656c5c1314e66b497953f35e366567e76ff0381cf87a9c6184a0bd72fe489e0c87aff80adf79d6f0d56de841e65af793a553bc4b98#workspace:packages/common"],
+            ["@videostore/domain", "workspace:samples/videostore/domain"],
+            ["@videostore/projection", "workspace:samples/videostore/projection"],
+            ["@videostore/rest-adapter", "workspace:samples/videostore/rest-adapter"],
+            ["cli-color", "npm:2.0.0"],
+            ["flaschenpost", "npm:4.3.7"],
+            ["reflect-metadata", "npm:0.1.13"],
+            ["rxjs", "npm:6.6.3"],
+            ["sqlite3", "virtual:6469d5f9d3881e1ebcf1169954923ce6703d6f5e1796fe93c8f74b7fc69e90c8ee123f847e4cfb9c68e8f1b6331eacd2b50d1c6d811a254587512eaee3793e6a#npm:5.0.0"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["@webassemblyjs/ast", [

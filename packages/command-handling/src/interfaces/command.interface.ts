@@ -1,3 +1,1 @@
-export interface ICommand {
-  new ()
-}
+export interface ICommand {}

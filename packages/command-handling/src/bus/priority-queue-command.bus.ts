@@ -1,18 +1,19 @@
-import { Injectable }                      from '@nestjs/common'
-import { Observable, of }                  from 'rxjs'
-import { Command }                         from 'wolkenkit/build/lib/common/elements/Command'
-import { CommandWithMetadata }             from 'wolkenkit/build/lib/common/elements/CommandWithMetadata'
-import { from as fromPromise }             from 'rxjs'
-import { throwError }                      from 'rxjs'
-import { v4 as uuid }                      from 'uuid'
+import { Injectable }                                     from '@nestjs/common'
+import { Observable, of }                                 from 'rxjs'
+import { Command }                                        from 'wolkenkit/build/lib/common/elements/Command'
+import { CommandWithMetadata }                            from 'wolkenkit/build/lib/common/elements/CommandWithMetadata'
+import { from as fromPromise }                            from 'rxjs'
+import { throwError }                                     from 'rxjs'
+import { v4 as uuid }                                     from 'uuid'
 
-import { CommandPriorityQueueStore }       from '@typa/storage'
+import { CommandPriorityQueueStore }                      from '@typa/storage'
 
-import { CommandHandlerNotFoundException } from '../exceptions'
-import { ICommandBus }                     from '../interfaces'
-import { ICommand }                        from '../interfaces'
-import { CommandHandlingMetadataRegistry } from '../metadata'
-import { ClientMetadata }                  from './client.metadata'
+import { CommandEmptyTargetAggregateIdentifierException } from '../exceptions'
+import { CommandHandlerNotFoundException }                from '../exceptions'
+import { ICommandBus }                                    from '../interfaces'
+import { ICommand }                                       from '../interfaces'
+import { CommandHandlingMetadataRegistry }                from '../metadata'
+import { ClientMetadata }                                 from './client.metadata'
 
 const isFunction = (fn: any): boolean => typeof fn === 'function'
 
@@ -34,6 +35,10 @@ export class PriorityQueueCommandBus<CommandBase extends ICommand = ICommand>
     }
 
     const aggregateId = command[handler.getTargetAggregateIdentifier()] || (command as any).id
+
+    if (!aggregateId) {
+      return throwError(new CommandEmptyTargetAggregateIdentifierException(commandName))
+    }
 
     const commandWithouthMetadata = new Command({
       contextIdentifier: {
