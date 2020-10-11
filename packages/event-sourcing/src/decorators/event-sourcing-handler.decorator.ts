@@ -1,6 +1,6 @@
 import { SetMetadata, applyDecorators }    from '@nestjs/common'
 
-import { IEvent }                          from '@typa/event-handling'
+import { IEventConstructor }               from '@typa/event-handling'
 
 import { DomainEventHandlerParamType }     from './domain-event-handler-param.type'
 import { DOMAIN_EVENT_ARGS_METADATA }      from './domain-event.decorator'
@@ -17,10 +17,10 @@ const addStateParamMetadata = (target, key) => {
 }
 
 export interface EventSourcingHandlerMetadata {
-  event: IEvent
+  event: IEventConstructor
 }
 
 export const EVENT_SOURCING_HANDLER_METADATA = '__eventSourcingHandler__'
 
-export const EventSourcingHandler = (event: Partial<IEvent>): MethodDecorator =>
+export const EventSourcingHandler = (event: IEventConstructor): MethodDecorator =>
   applyDecorators(SetMetadata(EVENT_SOURCING_HANDLER_METADATA, { event }), addStateParamMetadata)

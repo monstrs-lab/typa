@@ -9,7 +9,7 @@ import { IQuery }       from '../interfaces'
 export class QueryGateway<QueryBase extends IQuery = IQuery> {
   constructor(private commandBus: IQueryBus) {}
 
-  send<T extends QueryBase>(command: T): Observable<IQueryResult> {
+  query<T extends QueryBase>(command: T): Observable<IQueryResult> {
     return this.commandBus.dispatch(command)
   }
 }

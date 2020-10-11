@@ -1,3 +1,1 @@
-export interface IEvent {
-  new ()
-}
+export interface IEvent {}

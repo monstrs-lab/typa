@@ -7,7 +7,15 @@ import { VideoStoreRestAdapterModule } from '@videostore/rest-adapter'
 
 @Module({
   imports: [
-    TypaModule.register(),
+    TypaModule.register({
+      storage: {
+        type: 'postgres',
+        host: 'localhost',
+        database: 'db',
+        username: 'postgres',
+        password: 'password',
+      },
+    }),
     VideoStoreDomainModule,
     VideoStoreProjectionModule,
     VideoStoreRestAdapterModule,

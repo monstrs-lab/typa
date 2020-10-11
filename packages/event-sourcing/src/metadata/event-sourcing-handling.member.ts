@@ -1,15 +1,19 @@
-import { DomainEvent }     from 'wolkenkit/build/lib/common/elements/DomainEvent'
-import { DomainEventData } from 'wolkenkit/build/lib/common/elements/DomainEventData'
-import { State }           from 'wolkenkit/build/lib/common/elements/State'
+import { DomainEvent }       from 'wolkenkit/build/lib/common/elements/DomainEvent'
+import { DomainEventData }   from 'wolkenkit/build/lib/common/elements/DomainEventData'
+import { State }             from 'wolkenkit/build/lib/common/elements/State'
 
-import { IEvent }          from '@typa/event-handling'
+import { IEventConstructor } from '@typa/event-handling'
+import { IEvent }            from '@typa/event-handling'
 
 export type EventSourcingContextHandlingMember = <TState extends State>(
   ...args: Array<TState | IEvent>
 ) => Promise<TState> | TState
 
 export class EventSourcingHandlingMember {
-  constructor(private event: IEvent, private handler: EventSourcingContextHandlingMember) {}
+  constructor(
+    private event: IEventConstructor,
+    private handler: EventSourcingContextHandlingMember
+  ) {}
 
   handle<TState extends State, TDomainEventData extends DomainEventData>(
     state: TState,

@@ -14,6 +14,9 @@ export { CommandHandler } from '@typa/command-handling'
 export { TargetAggregateIdentifier } from '@typa/command-handling'
 export { CommandGateway } from '@typa/command-handling'
 
+export { Event } from '@typa/event-handling'
+export { EventHandler } from '@typa/event-handling'
+
 export { Query } from '@typa/query-handling'
 export { QueryHandler } from '@typa/query-handling'
 export { QueryGateway } from '@typa/query-handling'

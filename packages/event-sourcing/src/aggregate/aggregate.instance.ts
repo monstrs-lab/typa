@@ -130,7 +130,7 @@ export class AggregateInstance<TState extends State> {
       const clonedCommand = cloneDeep(command)
 
       // eslint-disable-next-line no-restricted-syntax
-      for await (const event of await commandHandler(this.state, clonedCommand)) {
+      for await (const event of await commandHandler.handle(this.state, clonedCommand)) {
         await aggregate.publishDomainEvent(event.constructor.name, { ...event })
       }
 

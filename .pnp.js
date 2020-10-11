@@ -1949,6 +1949,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "typeorm"
           ],
           "linkType": "HARD",
+        }],
+        ["virtual:f8954014305a044951c5aee67bce472de092da24d0529a6dcd4ea26b28c5af57a91043949078b217fdeb9cde40b2bed90b114f5771e8a5ff058f948f741c1169#npm:7.1.4", {
+          "packageLocation": "./.yarn/$$virtual/@nestjs-typeorm-virtual-48f54041c4/0/cache/@nestjs-typeorm-npm-7.1.4-998d2e402e-b360ba1f92.zip/node_modules/@nestjs/typeorm/",
+          "packageDependencies": [
+            ["@nestjs/typeorm", "virtual:f8954014305a044951c5aee67bce472de092da24d0529a6dcd4ea26b28c5af57a91043949078b217fdeb9cde40b2bed90b114f5771e8a5ff058f948f741c1169#npm:7.1.4"],
+            ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@types/nestjs__common", null],
+            ["@types/nestjs__core", null],
+            ["@types/reflect-metadata", null],
+            ["@types/rxjs", null],
+            ["@types/typeorm", null],
+            ["reflect-metadata", null],
+            ["rxjs", "npm:6.6.3"],
+            ["typeorm", "npm:0.2.26"],
+            ["uuid", "npm:8.3.0"]
+          ],
+          "packagePeers": [
+            "@nestjs/common",
+            "@nestjs/core",
+            "@types/nestjs__common",
+            "@types/nestjs__core",
+            "@types/reflect-metadata",
+            "@types/rxjs",
+            "@types/typeorm",
+            "reflect-metadata",
+            "typeorm"
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@nestjs/websockets", [
@@ -3885,8 +3914,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@videostore/projection", "workspace:samples/videostore/projection"],
             ["@nestjs/common", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
             ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
+            ["@nestjs/typeorm", "virtual:f8954014305a044951c5aee67bce472de092da24d0529a6dcd4ea26b28c5af57a91043949078b217fdeb9cde40b2bed90b114f5771e8a5ff058f948f741c1169#npm:7.1.4"],
             ["@typa/common", "virtual:8bf8750b7f72bdb8e708d8656c5c1314e66b497953f35e366567e76ff0381cf87a9c6184a0bd72fe489e0c87aff80adf79d6f0d56de841e65af793a553bc4b98#workspace:packages/common"],
             ["@types/node", "npm:14.11.1"],
+            ["@videostore/domain", "workspace:samples/videostore/domain"],
+            ["ts-node", "virtual:f8954014305a044951c5aee67bce472de092da24d0529a6dcd4ea26b28c5af57a91043949078b217fdeb9cde40b2bed90b114f5771e8a5ff058f948f741c1169#npm:9.0.0"],
             ["typeorm", "npm:0.2.26"]
           ],
           "linkType": "SOFT",
@@ -5331,6 +5363,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["are-we-there-yet", "npm:1.1.5"],
             ["delegates", "npm:1.0.0"],
             ["readable-stream", "npm:2.3.7"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["arg", [
+        ["npm:4.1.3", {
+          "packageLocation": "./.yarn/cache/arg-npm-4.1.3-1748b966a8-81b3b40b15.zip/node_modules/arg/",
+          "packageDependencies": [
+            ["arg", "npm:4.1.3"]
           ],
           "linkType": "HARD",
         }]
@@ -17079,6 +17120,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["ts-node", [
+        ["virtual:f8954014305a044951c5aee67bce472de092da24d0529a6dcd4ea26b28c5af57a91043949078b217fdeb9cde40b2bed90b114f5771e8a5ff058f948f741c1169#npm:9.0.0", {
+          "packageLocation": "./.yarn/$$virtual/ts-node-virtual-1300e0fe3c/0/cache/ts-node-npm-9.0.0-7f58a021c2-49d2ab087f.zip/node_modules/ts-node/",
+          "packageDependencies": [
+            ["ts-node", "virtual:f8954014305a044951c5aee67bce472de092da24d0529a6dcd4ea26b28c5af57a91043949078b217fdeb9cde40b2bed90b114f5771e8a5ff058f948f741c1169#npm:9.0.0"],
+            ["@types/typescript", null],
+            ["arg", "npm:4.1.3"],
+            ["diff", "npm:4.0.2"],
+            ["make-error", "npm:1.3.6"],
+            ["source-map-support", "npm:0.5.19"],
+            ["typescript", null],
+            ["yn", "npm:3.1.1"]
+          ],
+          "packagePeers": [
+            "@types/typescript",
+            "typescript"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["tsconfig-paths", [
         ["npm:3.9.0", {
           "packageLocation": "./.yarn/cache/tsconfig-paths-npm-3.9.0-92dcbdee37-5383ba626b.zip/node_modules/tsconfig-paths/",
@@ -18349,6 +18410,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yargs-parser-npm-20.2.0-72b92a2103-d707279bde.zip/node_modules/yargs-parser/",
           "packageDependencies": [
             ["yargs-parser", "npm:20.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["yn", [
+        ["npm:3.1.1", {
+          "packageLocation": "./.yarn/cache/yn-npm-3.1.1-8ad4259784-bff63b8056.zip/node_modules/yn/",
+          "packageDependencies": [
+            ["yn", "npm:3.1.1"]
           ],
           "linkType": "HARD",
         }]

@@ -230,8 +230,10 @@ describe('event-sourcing', () => {
             },
           })
 
-          const domainEvents = await aggregateInstance.handleCommand(command, (state, { data }) => {
-            return [new SucceessEvent(), new ExecuteEvent(data.strategy)]
+          const domainEvents = await aggregateInstance.handleCommand(command, {
+            handle: (state, { data }) => {
+              return [new SucceessEvent(), new ExecuteEvent(data.strategy)]
+            },
           })
 
           expect(domainEvents.length).toBe(2)
@@ -275,8 +277,10 @@ describe('event-sourcing', () => {
             },
           })
 
-          await aggregateInstance.handleCommand(command, (state, { data }) => {
-            return [new SucceessEvent(), new ExecuteEvent(data.strategy)]
+          await aggregateInstance.handleCommand(command, {
+            handle: (state, { data }) => {
+              return [new SucceessEvent(), new ExecuteEvent(data.strategy)]
+            },
           })
 
           expect(aggregateInstance.state).toEqual({
@@ -298,8 +302,10 @@ describe('event-sourcing', () => {
             },
           })
 
-          const domainEvents = await aggregateInstance.handleCommand(command, () => {
-            throw new errors.CommandRejected('Intentionally rejected execute.')
+          const domainEvents = await aggregateInstance.handleCommand(command, {
+            handle: () => {
+              throw new errors.CommandRejected('Intentionally rejected execute.')
+            },
           })
 
           expect(domainEvents.length).toBe(1)
@@ -335,8 +341,10 @@ describe('event-sourcing', () => {
             },
           })
 
-          const domainEvents = await aggregateInstance.handleCommand(command, () => {
-            throw new Error('Intentionally failed execute.')
+          const domainEvents = await aggregateInstance.handleCommand(command, {
+            handle: () => {
+              throw new Error('Intentionally failed execute.')
+            },
           })
 
           expect(domainEvents.length).toBe(1)
