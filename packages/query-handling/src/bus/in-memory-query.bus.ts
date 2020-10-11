@@ -1,3 +1,4 @@
+import { Injectable }                    from '@nestjs/common'
 import { Observable, of }                from 'rxjs'
 import { from as fromPromise }           from 'rxjs'
 import { throwError }                    from 'rxjs'
@@ -10,6 +11,7 @@ import { QueryHandlingMetadataRegistry } from '../metadata'
 
 const isFunction = (fn: any): boolean => typeof fn === 'function'
 
+@Injectable()
 export class InMemoryQueryBus implements IQueryBus {
   constructor(private readonly metadataRegistry: QueryHandlingMetadataRegistry) {}
 

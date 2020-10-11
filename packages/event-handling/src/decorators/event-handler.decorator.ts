@@ -1,6 +1,6 @@
 import { SetMetadata, applyDecorators } from '@nestjs/common'
 
-import { IEvent }                       from '../interfaces'
+import { IEventConstructor }            from '../interfaces'
 import { EventHandlerParamType }        from './event-handler-param.type'
 import { assignMetadata }               from './param.utils'
 
@@ -21,8 +21,8 @@ export const createEventHandlerParamDecorator = (
 }
 
 export interface EventHandlerMetadata {
-  event: IEvent
+  event: IEventConstructor
 }
 
-export const EventHandler = (event: IEvent): MethodDecorator =>
+export const EventHandler = (event: IEventConstructor): MethodDecorator =>
   applyDecorators(SetMetadata(EVENT_HANDLER_METADATA, { event }))

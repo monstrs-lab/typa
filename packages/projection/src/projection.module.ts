@@ -10,11 +10,6 @@ export class TypaProjectionModule {
   static register({ entities = [], migrations = [] }: ProjectionModuleOptions): DynamicModule {
     MigrationsStorage.addMigrations(migrations)
 
-    return {
-      module: TypaProjectionModule,
-      imports: [
-        TypeOrmModule.forFeature(Array.isArray(entities) ? entities : Object.values(entities)),
-      ],
-    }
+    return TypeOrmModule.forFeature(Array.isArray(entities) ? entities : Object.values(entities))
   }
 }

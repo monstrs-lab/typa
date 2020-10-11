@@ -6,6 +6,7 @@ import { Repository }                      from '@typa/event-sourcing'
 import { Logger }                          from '@typa/logger'
 import { CommandPriorityQueueStore }       from '@typa/storage'
 
+import { CommandHandlerNotFoundException } from '../exceptions'
 import { CommandHandlingMetadataRegistry } from '../metadata'
 import { errors }                          from './wolkenkit'
 import { getCommandWithMetadataSchema }    from './wolkenkit'
@@ -50,6 +51,10 @@ export class CommandProcessor {
       )
 
       const commandHandler = this.metadataRegistry.getCommandHandler(command.name)
+
+      if (!commandHandler) {
+        throw new CommandHandlerNotFoundException(command.name)
+      }
 
       const handleCommandPromise = aggregateInstance.handleCommand(command, commandHandler)
 
