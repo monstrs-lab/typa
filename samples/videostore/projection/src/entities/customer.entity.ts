@@ -1,5 +1,8 @@
 import { Column, Entity, PrimaryColumn }      from 'typeorm'
 import { CreateDateColumn, UpdateDateColumn } from 'typeorm'
+import { OneToMany }                          from 'typeorm'
+
+import { Film }                               from './film.entity'
 
 @Entity()
 export class Customer {
@@ -14,6 +17,9 @@ export class Customer {
 
   @Column({ default: 0 })
   bonusPoints: number
+
+  @OneToMany((type) => Film, (film) => film.renter)
+  rentedFilms: Film[]
 
   @CreateDateColumn()
   createdAt: Date

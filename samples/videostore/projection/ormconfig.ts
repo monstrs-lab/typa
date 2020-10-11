@@ -1,4 +1,5 @@
 const { Customer } = require('./src/entities')
+const { Film } = require('./src/entities')
 
 module.exports = {
   type: 'postgres',
@@ -6,7 +7,7 @@ module.exports = {
   database: 'db',
   username: 'postgres',
   password: 'password',
-  entities: [Customer],
+  entities: [Customer, Film],
   cli: {
     migrationsDir: 'src/migrations',
   },

@@ -3933,6 +3933,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/core", "virtual:3982ca86e93677e3bc4338eaba22eccec14ea3f55836b3ae203291db8aeea031b00aa2680b5547220c83eebd9d272da4e63d0d08078cb5942990c5ecfe419c41#npm:7.4.4"],
             ["@typa/common", "virtual:8bf8750b7f72bdb8e708d8656c5c1314e66b497953f35e366567e76ff0381cf87a9c6184a0bd72fe489e0c87aff80adf79d6f0d56de841e65af793a553bc4b98#workspace:packages/common"],
             ["@videostore/domain", "workspace:samples/videostore/domain"],
+            ["class-transformer", "npm:0.3.1"],
             ["class-validator", "npm:0.12.2"],
             ["uuid", "npm:8.3.0"]
           ],

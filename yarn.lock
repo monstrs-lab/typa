@@ -2930,6 +2930,7 @@ __metadata:
     "@nestjs/core": ^7.4.4
     "@typa/common": "workspace:0.0.14"
     "@videostore/domain": "workspace:0.0.1"
+    class-transformer: ^0.3.1
     class-validator: ^0.12.2
     uuid: ^8.3.0
   languageName: unknown
@@ -5045,7 +5046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"class-transformer@npm:*":
+"class-transformer@npm:*, class-transformer@npm:^0.3.1":
   version: 0.3.1
   resolution: "class-transformer@npm:0.3.1"
   checksum: 3ae3ef2510d2822766a97d31eb7ca550dabda56cbfe70968f295420531667ca95b4d84cddfe2dc302abc41c8e26d667d43235b0f4759eee09a007741cc307bc8
