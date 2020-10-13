@@ -1,3 +1,4 @@
+import { AssertionError }      from 'assert'
 import { Command }             from 'wolkenkit/build/lib/common/elements/Command'
 import { CommandData }         from 'wolkenkit/build/lib/common/elements/CommandData'
 import { State }               from 'wolkenkit/build/lib/common/elements/State'
@@ -11,7 +12,7 @@ type ApplyEvent = (event: IEvent) => void
 
 export type CommandContextHandlingMember = <TState extends State>(
   ...args: Array<TState | ICommand | ApplyEvent>
-) => Promise<void>
+) => Promise<void | Error | AssertionError>
 
 export class CommandHandlingMember {
   constructor(
@@ -43,9 +44,13 @@ export class CommandHandlingMember {
 
     const cmd = Object.assign(new Cmd(), command.data)
 
-    await handler<TState>(state, cmd, (event: IEvent) => {
+    const result = await handler<TState>(state, cmd, (event: IEvent) => {
       events.push(event)
     })
+
+    if (result instanceof Error || result instanceof AssertionError) {
+      throw result
+    }
 
     return events
   }

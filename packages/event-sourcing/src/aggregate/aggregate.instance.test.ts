@@ -21,7 +21,6 @@ import { DomainEvent }                   from './wolkenkit'
 import { DomainEventData }               from './wolkenkit'
 import { buildCommandWithMetadata }      from './wolkenkit'
 import { buildDomainEvent }              from './wolkenkit'
-import { errors }                        from './wolkenkit'
 
 describe('event-sourcing', () => {
   describe('aggregate-instance', () => {
@@ -230,11 +229,10 @@ describe('event-sourcing', () => {
             },
           })
 
-          const domainEvents = await aggregateInstance.handleCommand(command, {
-            handle: (state, { data }) => {
-              return [new SucceessEvent(), new ExecuteEvent(data.strategy)]
-            },
-          })
+          const domainEvents = await aggregateInstance.applyCommandEvents(command, [
+            new SucceessEvent(),
+            new ExecuteEvent(command.data.strategy),
+          ])
 
           expect(domainEvents.length).toBe(2)
 
@@ -277,93 +275,14 @@ describe('event-sourcing', () => {
             },
           })
 
-          await aggregateInstance.handleCommand(command, {
-            handle: (state, { data }) => {
-              return [new SucceessEvent(), new ExecuteEvent(data.strategy)]
-            },
-          })
+          await aggregateInstance.applyCommandEvents(command, [
+            new SucceessEvent(),
+            new ExecuteEvent(command.data.strategy),
+          ])
 
           expect(aggregateInstance.state).toEqual({
             domainEventNames: ['succeeded', 'executed'],
           })
-        })
-
-        it('publishes (and does not store) a rejected event if a handler rejects.', async () => {
-          const { aggregateIdentifier } = aggregateInstance
-
-          const command = buildCommandWithMetadata({
-            contextIdentifier: {
-              name: 'test',
-            },
-            aggregateIdentifier,
-            name: ExecuteEvent.name,
-            data: {
-              strategy: 'reject',
-            },
-          })
-
-          const domainEvents = await aggregateInstance.handleCommand(command, {
-            handle: () => {
-              throw new errors.CommandRejected('Intentionally rejected execute.')
-            },
-          })
-
-          expect(domainEvents.length).toBe(1)
-          expect(domainEvents[0]).toEqual(
-            expect.objectContaining({
-              contextIdentifier: {
-                name: 'test',
-              },
-              aggregateIdentifier,
-              name: 'ExecuteEventRejected',
-              data: {
-                reason: 'Intentionally rejected execute.',
-              },
-            })
-          )
-
-          expect(
-            domainEventStore.getLastDomainEvent({ aggregateIdentifier })
-          ).resolves.toBeUndefined()
-        })
-
-        it('publishes (and does not store) a failed event if a handler throws an unknow exception.', async () => {
-          const { aggregateIdentifier } = aggregateInstance
-
-          const command = buildCommandWithMetadata({
-            contextIdentifier: {
-              name: 'test',
-            },
-            aggregateIdentifier,
-            name: ExecuteEvent.name,
-            data: {
-              strategy: 'fail',
-            },
-          })
-
-          const domainEvents = await aggregateInstance.handleCommand(command, {
-            handle: () => {
-              throw new Error('Intentionally failed execute.')
-            },
-          })
-
-          expect(domainEvents.length).toBe(1)
-          expect(domainEvents[0]).toEqual(
-            expect.objectContaining({
-              contextIdentifier: {
-                name: 'test',
-              },
-              aggregateIdentifier,
-              name: 'ExecuteEventFailed',
-              data: {
-                reason: 'Intentionally failed execute.',
-              },
-            })
-          )
-
-          expect(
-            domainEventStore.getLastDomainEvent({ aggregateIdentifier })
-          ).resolves.toBeUndefined()
         })
       })
     })

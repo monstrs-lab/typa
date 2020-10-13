@@ -3,3 +3,8 @@ export { getCommandWithMetadataSchema } from 'wolkenkit/build/lib/common/schemas
 export { acknowledgeCommand } from 'wolkenkit/build/lib/runtimes/singleProcess/processes/main/domain/acknowledgeCommand'
 export { fetchCommand } from 'wolkenkit/build/lib/runtimes/singleProcess/processes/main/domain/fetchCommand'
 export { keepRenewingLock } from 'wolkenkit/build/lib/runtimes/singleProcess/processes/main/domain/keepRenewingLock'
+export { CommandWithMetadata } from 'wolkenkit/build/lib/common/elements/CommandWithMetadata'
+export { DomainEvent } from 'wolkenkit/build/lib/common/elements/DomainEvent'
+export { DomainEventData } from 'wolkenkit/build/lib/common/elements/DomainEventData'
+export { DomainEventWithState } from 'wolkenkit/build/lib/common/elements/DomainEventWithState'
+export { State } from 'wolkenkit/build/lib/common/elements/State'

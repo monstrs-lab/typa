@@ -3,14 +3,15 @@
   "private": true,
   "scripts": {
     "lint": "mctl lint",
-    "test": "mctl test",
+    "test:unit": "mctl test:unit",
+    "test:integration": "mctl test:integration",
     "commit": "mctl commit",
     "format": "mctl format",
     "typecheck": "mctl typecheck",
     "checkcommit": "mctl precommit"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.58",
+    "@monstrs/mctl-cli": "0.2.59",
     "@types/jest": "^26.0.14",
     "@types/node": "^14.11.2",
     "@yarnpkg/pnpify": "^2.2.1",
@@ -18,6 +19,7 @@
     "typescript": "4.0.3"
   },
   "workspaces": [
+    "integration/*",
     "packages/*",
     "samples/**/*"
   ],

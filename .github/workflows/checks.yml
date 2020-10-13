@@ -7,6 +7,15 @@ jobs:
     name: Run
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: bitnami/postgresql
+        env:
+          POSTGRESQL_PASSWORD: password
+          POSTGRESQL_DATABASE: db
+        ports:
+          - 5432:5432
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,8 +38,13 @@ jobs:
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Test
-        run: yarn mctl check test
+      - name: Test:Unit
+        run: yarn mctl check test:unit
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Test:Integration
+        run: yarn mctl check test:integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
