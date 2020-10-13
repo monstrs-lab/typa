@@ -70,7 +70,11 @@ export class CommandHandlingMetadataExplorer implements OnModuleInit {
 
       const context = Object.assign(Object.create(Object.getPrototypeOf(instance)), this, state)
 
-      return Object.getPrototypeOf(instance)[key].call(context, ...args)
+      try {
+        return Object.getPrototypeOf(instance)[key].call(context, ...args)
+      } catch (error) {
+        return error
+      }
     }
 
     const paramsFactory = this.commandHandlerParamsFactory

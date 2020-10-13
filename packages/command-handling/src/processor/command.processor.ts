@@ -1,5 +1,8 @@
 import { Injectable }                      from '@nestjs/common'
+import { AssertionError }                  from 'assert'
 import { Value }                           from 'validate-value'
+import { cloneDeep }                       from 'lodash'
+import { v4 as uuid }                      from 'uuid'
 
 import { DomainEventPublisher }            from '@typa/event-handling'
 import { Repository }                      from '@typa/event-sourcing'
@@ -8,6 +11,8 @@ import { CommandPriorityQueueStore }       from '@typa/storage'
 
 import { CommandHandlerNotFoundException } from '../exceptions'
 import { CommandHandlingMetadataRegistry } from '../metadata'
+import { DomainEvent }                     from './wolkenkit'
+import { DomainEventWithState }            from './wolkenkit'
 import { errors }                          from './wolkenkit'
 import { getCommandWithMetadataSchema }    from './wolkenkit'
 import { acknowledgeCommand }              from './wolkenkit'
@@ -50,13 +55,7 @@ export class CommandProcessor {
         command.aggregateIdentifier
       )
 
-      const commandHandler = this.metadataRegistry.getCommandHandler(command.name)
-
-      if (!commandHandler) {
-        throw new CommandHandlerNotFoundException(command.name)
-      }
-
-      const handleCommandPromise = aggregateInstance.handleCommand(command, commandHandler)
+      const handleCommandPromise = this.handleCommand(command, aggregateInstance)
 
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
       ;(async (): Promise<void> => {
@@ -81,5 +80,59 @@ export class CommandProcessor {
         metadata,
       })
     }
+  }
+
+  protected async handleCommand(command, aggregateInstance) {
+    const commandHandler = this.metadataRegistry.getCommandHandler(command.name)
+
+    if (!commandHandler) {
+      throw new CommandHandlerNotFoundException(command.name)
+    }
+
+    try {
+      const clonedCommand = cloneDeep(command)
+
+      // eslint-disable-next-line no-restricted-syntax
+      const handledEvents = await commandHandler.handle(aggregateInstance.state, clonedCommand)
+
+      return aggregateInstance.applyCommandEvents(command, handledEvents)
+    } catch (error) {
+      return [this.buildCommandHandleErrorDomainEvent(error, command, aggregateInstance)]
+    }
+  }
+
+  protected buildCommandHandleErrorDomainEvent(error, command, aggregateInstance) {
+    const errorType = error instanceof AssertionError ? 'Rejected' : 'Failed'
+
+    const domainEventName = `${command.name}${errorType}`
+
+    const domainEvent = new DomainEvent({
+      contextIdentifier: aggregateInstance.contextIdentifier,
+      aggregateIdentifier: aggregateInstance.aggregateIdentifier,
+      name: domainEventName,
+      data: {
+        reason: error.message,
+      },
+      id: uuid(),
+      metadata: {
+        causationId: command.id,
+        correlationId: command.metadata.correlationId,
+        timestamp: Date.now(),
+        initiator: command.metadata.initiator,
+        revision: aggregateInstance.revision + aggregateInstance.unstoredDomainEvents.length + 1,
+        tags: [],
+      },
+    })
+
+    const previousState = cloneDeep(aggregateInstance.state)
+    const nextState = cloneDeep(aggregateInstance.state)
+
+    return new DomainEventWithState({
+      ...domainEvent,
+      state: {
+        previous: previousState,
+        next: nextState,
+      },
+    })
   }
 }

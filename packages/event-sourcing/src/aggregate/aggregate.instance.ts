@@ -1,5 +1,4 @@
-import { cloneDeep }                     from 'lodash'
-
+import { IEvent }                        from '@typa/event-handling'
 import { Logger }                        from '@typa/logger'
 
 import { EventSourcingMetadataRegistry } from '../metadata'
@@ -104,57 +103,24 @@ export class AggregateInstance<TState extends State> {
     return aggregateInstance
   }
 
-  public async handleCommand(
+  public async applyCommandEvents(
     command: CommandWithMetadata<CommandData>,
-    commandHandler
+    commandEvents: IEvent[]
   ): Promise<DomainEventWithState<DomainEventData, TState>[]> {
-    if (command.contextIdentifier.name !== this.contextIdentifier.name) {
-      throw new errors.IdentifierMismatch('Context name does not match.')
-    }
-    if (command.aggregateIdentifier.name !== this.aggregateIdentifier.name) {
-      throw new errors.IdentifierMismatch('Aggregate name does not match.')
-    }
-    if (command.aggregateIdentifier.id !== this.aggregateIdentifier.id) {
-      throw new errors.IdentifierMismatch('Aggregate id does not match.')
-    }
-
     if (await this.domainEventStore.hasDomainEventsWithCausationId({ causationId: command.id })) {
       return []
     }
 
     const aggregate = new EventSourcedAggregate(this, command)
 
-    let domainEvents: DomainEventWithState<DomainEventData, TState>[]
-
-    try {
-      const clonedCommand = cloneDeep(command)
-
-      // eslint-disable-next-line no-restricted-syntax
-      for await (const event of await commandHandler.handle(this.state, clonedCommand)) {
-        await aggregate.publishDomainEvent(event.constructor.name, { ...event })
-      }
-
-      await this.storeCurrentAggregateState()
-
-      domainEvents = this.unstoredDomainEvents
-    } catch (error) {
-      switch (error.code) {
-        case errors.CommandNotAuthorized.code:
-        case errors.CommandRejected.code: {
-          await aggregate.publishDomainEvent(`${command.name}Rejected`, {
-            reason: error.message,
-          })
-          break
-        }
-        default: {
-          await aggregate.publishDomainEvent(`${command.name}Failed`, {
-            reason: error.message,
-          })
-        }
-      }
-
-      domainEvents = [this.unstoredDomainEvents[this.unstoredDomainEvents.length - 1]]
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const event of commandEvents) {
+      await aggregate.publishDomainEvent(event.constructor.name, { ...event })
     }
+
+    await this.storeCurrentAggregateState()
+
+    const domainEvents: DomainEventWithState<DomainEventData, TState>[] = this.unstoredDomainEvents
 
     this.unstoredDomainEvents = []
 
