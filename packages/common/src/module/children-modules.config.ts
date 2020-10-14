@@ -10,6 +10,7 @@ import { QueryHandlingOptionsFactory }   from '@typa/query-handling'
 import { QueryHandlingModuleOptions }    from '@typa/query-handling'
 import { StorageOptionsFactory }         from '@typa/storage'
 import { StorageModuleOptions }          from '@typa/storage'
+import { StorageType }                   from '@typa/storage'
 
 import { TYPA_MODULE_OPTIONS }           from './typa.constants'
 import { TypaModuleOptions }             from './type-module-options.interface'
@@ -27,7 +28,7 @@ export class ChildrenModulesConfig
   createStorageOptions(): StorageModuleOptions {
     return (
       this.options.storage || {
-        type: 'inmemory',
+        type: StorageType.inmemory,
       }
     )
   }

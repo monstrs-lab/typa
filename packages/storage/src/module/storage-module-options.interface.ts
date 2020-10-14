@@ -1,12 +1,18 @@
 import { ModuleMetadata, Type } from '@nestjs/common/interfaces'
 
+// eslint-disable-next-line
+export enum StorageType {
+  inmemory = 'inmemory',
+  postgres = 'postgres',
+}
+
 export interface InMemoryStorageOptions {
-  type: 'inmemory'
+  type: StorageType.inmemory
   entityPrefix?: string
 }
 
 export interface PostgresStorageOptions {
-  type: 'postgres'
+  type: StorageType.postgres
   host: string
   database: string
   username: string

@@ -10,6 +10,7 @@ import { LockStore }                     from '../lock-store'
 import { DomainEventPriorityQueueStore } from '../priority-queue-store'
 import { CommandPriorityQueueStore }     from '../priority-queue-store'
 import { StorageModuleOptions }          from './storage-module-options.interface'
+import { StorageType }                   from './storage-module-options.interface'
 import { TYPA_STORAGE_MODULE_OPTIONS }   from './storage.constants'
 import { TypaStorageModule }             from './storage.module'
 import { TypeOrmConfig }                 from './typeorm.config'
@@ -41,7 +42,7 @@ describe('storage', () => {
       module = await Test.createTestingModule({
         imports: [
           TypaStorageModule.registerAsync({
-            useFactory: () => ({ type: 'inmemory' }),
+            useFactory: () => ({ type: StorageType.inmemory }),
           }),
         ],
       }).compile()
@@ -59,7 +60,7 @@ describe('storage', () => {
     it(`register async use class`, async () => {
       class TestStorageModuleOptions {
         createStorageOptions(): StorageModuleOptions {
-          return { type: 'inmemory' }
+          return { type: StorageType.inmemory }
         }
       }
 
@@ -84,7 +85,7 @@ describe('storage', () => {
     it(`register async use exists`, async () => {
       class TestStorageModuleOptions {
         createStorageOptions(): StorageModuleOptions {
-          return { type: 'inmemory' }
+          return { type: StorageType.inmemory }
         }
       }
 

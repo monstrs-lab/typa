@@ -1,6 +1,6 @@
 import { Module }                      from '@nestjs/common'
 
-import { TypaModule }                  from '@typa/common'
+import { StorageType, TypaModule }     from '@typa/common'
 import { VideoStoreDomainModule }      from '@videostore/domain'
 import { VideoStoreProjectionModule }  from '@videostore/projection'
 import { VideoStoreRestAdapterModule } from '@videostore/rest-adapter'
@@ -9,7 +9,7 @@ import { VideoStoreRestAdapterModule } from '@videostore/rest-adapter'
   imports: [
     TypaModule.register({
       storage: {
-        type: 'postgres',
+        type: StorageType.postgres,
         host: 'localhost',
         database: 'db',
         username: 'postgres',
