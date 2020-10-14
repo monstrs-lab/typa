@@ -1,4 +1,7 @@
 export * from './module'
+export * from './config'
+
+export { StorageType } from '@typa/storage'
 
 export { Logger } from '@typa/logger'
 export { NestLogger } from '@typa/logger'

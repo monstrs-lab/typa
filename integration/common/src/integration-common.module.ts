@@ -1,19 +1,14 @@
-import { Module }       from '@nestjs/common'
+import { Module }        from '@nestjs/common'
 
-import { TypaModule }   from '@typa/common'
+import { TypaModule }    from '@typa/common'
+import { TypaEnvConfig } from '@typa/common'
 
-import { DomainModule } from './domain'
+import { DomainModule }  from './domain'
 
 @Module({
   imports: [
-    TypaModule.register({
-      storage: {
-        type: 'postgres',
-        host: 'localhost',
-        database: 'db',
-        username: 'postgres',
-        password: 'password',
-      },
+    TypaModule.registerAsync({
+      useClass: TypaEnvConfig,
     }),
     DomainModule,
   ],
