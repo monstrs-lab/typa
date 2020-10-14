@@ -1,6 +1,6 @@
 {
   "name": "@typa/common",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,13 +12,13 @@
     "build": "mctl library build"
   },
   "dependencies": {
-    "@typa/command-handling": "workspace:0.0.14",
-    "@typa/event-handling": "workspace:0.0.14",
-    "@typa/event-sourcing": "workspace:0.0.14",
-    "@typa/logger": "workspace:0.0.14",
-    "@typa/projection": "workspace:0.0.14",
-    "@typa/query-handling": "workspace:0.0.14",
-    "@typa/storage": "workspace:0.0.14"
+    "@typa/command-handling": "workspace:0.0.15",
+    "@typa/event-handling": "workspace:0.0.15",
+    "@typa/event-sourcing": "workspace:0.0.15",
+    "@typa/logger": "workspace:0.0.15",
+    "@typa/projection": "workspace:0.0.15",
+    "@typa/query-handling": "workspace:0.0.15",
+    "@typa/storage": "workspace:0.0.15"
   },
   "devDependencies": {
     "@monstrs/mctl-cli": "0.2.59",

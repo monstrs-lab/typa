@@ -1,6 +1,6 @@
 {
   "name": "@typa/storage",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@nestjs/typeorm": "^7.1.4",
-    "@typa/logger": "workspace:0.0.14",
+    "@typa/logger": "workspace:0.0.15",
     "p-queue": "^6.6.1",
     "pg": "^8.3.3",
     "pg-query-stream": "^3.2.3",

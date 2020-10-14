@@ -1,6 +1,6 @@
 {
   "name": "@typa/event-sourcing",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,8 +12,8 @@
     "build": "mctl library build"
   },
   "dependencies": {
-    "@typa/logger": "workspace:0.0.14",
-    "@typa/storage": "workspace:0.0.14",
+    "@typa/logger": "workspace:0.0.15",
+    "@typa/storage": "workspace:0.0.15",
     "lodash": "^4.17.20",
     "uuid": "^8.3.0",
     "wolkenkit": "4.0.0-ctp.6"
@@ -23,7 +23,7 @@
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/testing": "^7.4.4",
-    "@typa/event-handling": "workspace:0.0.14",
+    "@typa/event-handling": "workspace:0.0.15",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.3",
     "streamtoarray": "^3.0.0"
