@@ -1,11 +1,10 @@
 /* eslint-disable import/named */
 
+import { TypeOrmLogger }                from '@monstrs/typeorm-logger'
 import { Inject, Injectable }           from '@nestjs/common'
 import { TypeOrmOptionsFactory }        from '@nestjs/typeorm'
 import { TypeOrmModuleOptions }         from '@nestjs/typeorm'
 import { getMetadataArgsStorage }       from 'typeorm'
-
-import { TypeOrmLogger }                from '@typa/logger'
 
 import * as migrations                  from './typeorm.migrations'
 import { ConsumerProgress }             from '../consumer-progress-store'

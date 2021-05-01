@@ -30,6 +30,7 @@
     }
   },
   "resolutions": {
+    "@monstrs/logger": "0.0.4",
     "@types/node": "14.11.1"
   }
 }

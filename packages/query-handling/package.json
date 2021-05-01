@@ -12,7 +12,7 @@
     "build": "mctl library build"
   },
   "dependencies": {
-    "@typa/logger": "workspace:0.0.15"
+    "@monstrs/logger": "^0.0.4"
   },
   "devDependencies": {
     "@monstrs/mctl-cli": "0.2.59",

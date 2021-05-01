@@ -1,10 +1,9 @@
+import { TypeOrmLogger }          from '@monstrs/typeorm-logger'
 import { Connection }             from 'typeorm'
 import { toArray }                from 'streamtoarray'
 import { createConnection }       from 'typeorm'
 import { getMetadataArgsStorage } from 'typeorm'
 import { v4 as uuid }             from 'uuid'
-
-import { TypeOrmLogger }          from '@typa/logger'
 
 import { DomainEventStore }       from './domain-event.store'
 import { DomainEventSnapshot }    from './entities'

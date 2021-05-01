@@ -3,9 +3,8 @@ export * from './config'
 
 export { StorageType } from '@typa/storage'
 
-export { Logger } from '@typa/logger'
-export { NestLogger } from '@typa/logger'
-export { TypeOrmLogger } from '@typa/logger'
+export { Logger } from '@monstrs/logger'
+export { TypeOrmLogger } from '@monstrs/typeorm-logger'
 
 export { Aggregate } from '@typa/event-sourcing'
 export { DomainEvent } from '@typa/event-sourcing'

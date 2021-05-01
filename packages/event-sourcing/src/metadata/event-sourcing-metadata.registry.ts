@@ -1,6 +1,5 @@
+import { Logger }                      from '@monstrs/logger'
 import { Injectable }                  from '@nestjs/common'
-
-import { Logger }                      from '@typa/logger'
 
 import { AggregateMetadata }           from '../decorators'
 import { EventSourcingHandlingMember } from './event-sourcing-handling.member'
@@ -19,7 +18,7 @@ export class EventSourcingMetadataRegistry {
     }
 
     if (this.eventSourcingHandlers.get(instanceName)!.has(event)) {
-      this.logger.warning(`Event sourcing handler for event ${event} already exists`)
+      this.logger.warn(`Event sourcing handler for event ${event} already exists`)
     }
 
     this.eventSourcingHandlers.get(instanceName)!.set(event, handler)

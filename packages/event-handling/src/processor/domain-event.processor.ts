@@ -1,3 +1,4 @@
+import { Logger }                        from '@monstrs/logger'
 import { Injectable }                    from '@nestjs/common'
 import { Value }                         from 'validate-value'
 import { errors }                        from 'wolkenkit/build/lib/common/errors'
@@ -6,7 +7,6 @@ import { acknowledgeDomainEvent }        from 'wolkenkit/build/lib/runtimes/sing
 import { fetchDomainEvent }              from 'wolkenkit/build/lib/runtimes/singleProcess/processes/main/flow/fetchDomainEvent'
 import { keepRenewingLock }              from 'wolkenkit/build/lib/runtimes/singleProcess/processes/main/flow/keepRenewingLock'
 
-import { Logger }                        from '@typa/logger'
 import { ConsumerProgressStore }         from '@typa/storage'
 import { DomainEventStore }              from '@typa/storage'
 import { DomainEventPriorityQueueStore } from '@typa/storage'
@@ -65,9 +65,12 @@ export class DomainEventProcessor {
     const { domainEvent, metadata } = await fetchDomainEvent({ priorityQueue })
     const flowName = metadata.discriminator
 
-    this.logger.debug('Fetched and locked domain event for flow execution.', {
-      itemIdentifier: domainEvent.getItemIdentifier(),
-      metadata,
+    this.logger.debug({
+      message: 'Fetched and locked domain event for flow execution.',
+      data: {
+        itemIdentifier: domainEvent.getItemIdentifier(),
+        metadata,
+      },
     })
 
     try {
@@ -90,9 +93,12 @@ export class DomainEventProcessor {
         case 'acknowledge': {
           await acknowledgeDomainEvent({ flowName, token: metadata.token, priorityQueue })
 
-          this.logger.debug('Acknowledged domain event.', {
-            itemIdentifier: domainEvent.getItemIdentifier(),
-            metadata,
+          this.logger.debug({
+            message: 'Acknowledged domain event.',
+            data: {
+              itemIdentifier: domainEvent.getItemIdentifier(),
+              metadata,
+            },
           })
           break
         }
@@ -103,9 +109,12 @@ export class DomainEventProcessor {
             token: metadata.token,
           })
 
-          this.logger.debug('Skipped and deferred domain event.', {
-            itemIdentifier: domainEvent.getItemIdentifier(),
-            metadata,
+          this.logger.debug({
+            message: 'Skipped and deferred domain event.',
+            data: {
+              itemIdentifier: domainEvent.getItemIdentifier(),
+              metadata,
+            },
           })
           break
         }
@@ -114,7 +123,7 @@ export class DomainEventProcessor {
         }
       }
     } catch (error) {
-      this.logger.error('Failed to handle domain event: %s%.', error, { domainEvent })
+      this.logger.error(error)
 
       await acknowledgeDomainEvent({ flowName, token: metadata.token, priorityQueue })
     }
@@ -182,7 +191,7 @@ export class DomainEventProcessor {
           // eslint-disable-next-line no-await-in-loop
           await handler.handle(domainEvent)
         } catch (error) {
-          this.logger.error('The flow handler %s% %s%', flowName, error)
+          this.logger.error(error)
 
           throw error
         }

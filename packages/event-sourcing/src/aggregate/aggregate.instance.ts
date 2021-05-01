@@ -1,5 +1,6 @@
+import { Logger }                        from '@monstrs/logger'
+
 import { IEvent }                        from '@typa/event-handling'
-import { Logger }                        from '@typa/logger'
 
 import { EventSourcingMetadataRegistry } from '../metadata'
 import { EventSourcedAggregate }         from './event-sourced.aggregate'
