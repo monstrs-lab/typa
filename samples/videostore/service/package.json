@@ -5,12 +5,11 @@
   "main": "src/index.ts",
   "private": true,
   "scripts": {
-    "dev": "mctl service start",
-    "build": "mctl service build",
+    "dev": "yarn app service dev",
+    "build": "yarn app service build",
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.59",
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/platform-express": "^7.4.4",
@@ -19,12 +18,12 @@
     "@videostore/projection": "workspace:0.0.1",
     "@videostore/rest-adapter": "workspace:0.0.1",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.3"
+    "rxjs": "6.6.7"
   },
   "dependencies": {
     "cli-color": "*",
     "flaschenpost": "*",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.2"
   },
   "externalDependencies": {
     "cli-color": "*",

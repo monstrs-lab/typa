@@ -12,32 +12,26 @@ import { TYPA_COMMAND_HANDLING_MODULE_OPTIONS } from './command-handling.constan
 
 export const createCommandHandlingOptionsProvider = (
   options?: CommandHandlingModuleOptions
-): Provider[] => {
-  return [
-    {
-      provide: TYPA_COMMAND_HANDLING_MODULE_OPTIONS,
-      useValue: options || {},
-    },
-  ]
-}
+): Provider[] => [
+  {
+    provide: TYPA_COMMAND_HANDLING_MODULE_OPTIONS,
+    useValue: options || {},
+  },
+]
 
-export const createCommandHandlingProvider = (): Provider[] => {
-  return [
-    CommandHandlingMetadataAccessor,
-    CommandHandlingMetadataExplorer,
-    CommandHandlingMetadataRegistry,
-    PriorityQueueCommandBus,
-    CommandHandlingWorker,
-  ]
-}
+export const createCommandHandlingProvider = (): Provider[] => [
+  CommandHandlingMetadataAccessor,
+  CommandHandlingMetadataExplorer,
+  CommandHandlingMetadataRegistry,
+  PriorityQueueCommandBus,
+  CommandHandlingWorker,
+]
 
-export const createCommandHandlingExportsProvider = (): Provider[] => {
-  return [
-    CommandProcessor,
-    {
-      provide: CommandGateway,
-      useFactory: (comandBus) => new CommandGateway(comandBus),
-      inject: [PriorityQueueCommandBus],
-    },
-  ]
-}
+export const createCommandHandlingExportsProvider = (): Provider[] => [
+  CommandProcessor,
+  {
+    provide: CommandGateway,
+    useFactory: (comandBus) => new CommandGateway(comandBus),
+    inject: [PriorityQueueCommandBus],
+  },
+]

@@ -12,9 +12,9 @@
     "@nestjs/core": "^7.4.4",
     "@nestjs/typeorm": "^7.1.4",
     "@typa/common": "workspace:0.0.15",
-    "@types/node": "^14.11.8",
+    "@types/node": "^14.14.43",
     "@videostore/domain": "workspace:0.0.1",
-    "ts-node": "^9.0.0",
+    "ts-node": "^9.1.1",
     "typeorm": "^0.2"
   }
 }

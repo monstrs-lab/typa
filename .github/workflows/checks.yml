@@ -6,49 +6,44 @@ jobs:
   run:
     name: Run
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: bitnami/postgresql
-        env:
-          POSTGRESQL_PASSWORD: password
-          POSTGRESQL_DATABASE: db
-        ports:
-          - 5432:5432
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2-beta
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
-          node-version: '14.10'
+          node-version: '14.7'
 
       - name: Install
         run: yarn install
 
+      - name: Changes
+        run: yarn files changed list
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
       - name: Lint
-        run: yarn mctl check lint
+        run: yarn checks lint
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: TypeCheck
-        run: yarn mctl check typecheck
+        run: yarn checks typecheck
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Test:Unit
-        run: yarn mctl check test:unit
+      - name: TestUnit
+        run: yarn checks test unit
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Test:Integration
-        run: yarn mctl check test:integration
+      - name: TestIntegration
+        run: yarn checks test integration
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Release
-        run: yarn mctl check release
+        run: yarn checks release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
