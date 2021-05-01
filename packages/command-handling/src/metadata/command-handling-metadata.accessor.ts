@@ -1,7 +1,6 @@
+import { Logger }                               from '@monstrs/logger'
 import { Injectable }                           from '@nestjs/common'
 import { Reflector }                            from '@nestjs/core'
-
-import { Logger }                               from '@typa/logger'
 
 import { TARGET_AGGREGATE_IDENTIFIER_METADATA } from '../decorators'
 import { COMMAND_HANDLER_METADATA }             from '../decorators'

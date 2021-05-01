@@ -1,6 +1,5 @@
+import { Logger }                from '@monstrs/logger'
 import { Injectable }            from '@nestjs/common'
-
-import { Logger }                from '@typa/logger'
 
 import { CommandHandlingMember } from './command-handling.member'
 
@@ -12,7 +11,7 @@ export class CommandHandlingMetadataRegistry {
 
   addCommandHandler(commandName, handler: CommandHandlingMember) {
     if (this.commandHandlers.has(commandName)) {
-      this.logger.warning(`Command handler for command ${commandName} already exists`)
+      this.logger.warn(`Command handler for command ${commandName} already exists`)
     }
 
     this.commandHandlers.set(commandName, handler)

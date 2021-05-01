@@ -1,7 +1,6 @@
+import { TypeOrmLogger }    from '@monstrs/typeorm-logger'
 import { Connection }       from 'typeorm'
 import { createConnection } from 'typeorm'
-
-import { TypeOrmLogger }    from '@typa/logger'
 
 import { Lock }             from './entities'
 import { LockStore }        from './lock.store'

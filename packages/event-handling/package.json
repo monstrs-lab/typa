@@ -12,7 +12,7 @@
     "build": "mctl library build"
   },
   "dependencies": {
-    "@typa/logger": "workspace:0.0.15",
+    "@monstrs/logger": "^0.0.4",
     "@typa/storage": "workspace:0.0.15",
     "p-forever": "2.1.0",
     "validate-value": "^7.1.1",

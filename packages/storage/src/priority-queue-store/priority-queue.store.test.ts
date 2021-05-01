@@ -1,10 +1,9 @@
+import { TypeOrmLogger }            from '@monstrs/typeorm-logger'
 import { Connection }               from 'typeorm'
 import { isEqual }                  from 'lodash'
 import { createConnection }         from 'typeorm'
 import { getMetadataArgsStorage }   from 'typeorm'
 import { v4 as uuid }               from 'uuid'
-
-import { TypeOrmLogger }            from '@typa/logger'
 
 import { PriorityQueueItem }        from './entities'
 import { PriorityQueue }            from './entities'

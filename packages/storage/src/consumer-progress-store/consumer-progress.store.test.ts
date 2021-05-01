@@ -1,8 +1,7 @@
+import { TypeOrmLogger }         from '@monstrs/typeorm-logger'
 import { Connection }            from 'typeorm'
 import { createConnection }      from 'typeorm'
 import { v4 as uuid }            from 'uuid'
-
-import { TypeOrmLogger }         from '@typa/logger'
 
 import { ConsumerProgressStore } from './consumer-progress.store'
 import { ConsumerProgress }      from './entities'

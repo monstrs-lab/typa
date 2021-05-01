@@ -1,3 +1,4 @@
+import { Logger }                          from '@monstrs/logger'
 import { Injectable }                      from '@nestjs/common'
 import { AssertionError }                  from 'assert'
 import { Value }                           from 'validate-value'
@@ -6,7 +7,6 @@ import { v4 as uuid }                      from 'uuid'
 
 import { DomainEventPublisher }            from '@typa/event-handling'
 import { Repository }                      from '@typa/event-sourcing'
-import { Logger }                          from '@typa/logger'
 import { CommandPriorityQueueStore }       from '@typa/storage'
 
 import { CommandHandlerNotFoundException } from '../exceptions'
@@ -38,9 +38,12 @@ export class CommandProcessor {
 
     const { command, metadata } = await fetchCommand({ priorityQueue })
 
-    this.logger.debug('Fetched and locked command for domain server.', {
-      itemIdentifier: command.getItemIdentifier(),
-      metadata,
+    this.logger.debug({
+      message: 'Fetched and locked command for domain server.',
+      data: {
+        itemIdentifier: command.getItemIdentifier(),
+        metadata,
+      },
     })
 
     try {
@@ -71,13 +74,16 @@ export class CommandProcessor {
 
       await this.domainEventPublisher.publishDomainEvents(domainEvents)
     } catch (error) {
-      this.logger.error('Failed to handle command: %s', error, { command })
+      this.logger.error(error)
     } finally {
       await acknowledgeCommand({ command, token: metadata.token, priorityQueue })
 
-      this.logger.debug('Processed and acknowledged command.', {
-        itemIdentifier: command.getItemIdentifier(),
-        metadata,
+      this.logger.debug({
+        message: 'Processed and acknowledged command.',
+        data: {
+          itemIdentifier: command.getItemIdentifier(),
+          metadata,
+        },
       })
     }
   }
