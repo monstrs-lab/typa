@@ -10,30 +10,24 @@ import { TYPA_QUERY_HANDLING_MODULE_OPTIONS } from './query-handling.constants'
 
 export const createQueryHandlingOptionsProvider = (
   options?: QueryHandlingModuleOptions
-): Provider[] => {
-  return [
-    {
-      provide: TYPA_QUERY_HANDLING_MODULE_OPTIONS,
-      useValue: options || {},
-    },
-  ]
-}
+): Provider[] => [
+  {
+    provide: TYPA_QUERY_HANDLING_MODULE_OPTIONS,
+    useValue: options || {},
+  },
+]
 
-export const createQueryHandlingProvider = (): Provider[] => {
-  return [
-    QueryHandlingMetadataAccessor,
-    QueryHandlingMetadataExplorer,
-    QueryHandlingMetadataRegistry,
-    InMemoryQueryBus,
-  ]
-}
+export const createQueryHandlingProvider = (): Provider[] => [
+  QueryHandlingMetadataAccessor,
+  QueryHandlingMetadataExplorer,
+  QueryHandlingMetadataRegistry,
+  InMemoryQueryBus,
+]
 
-export const createQueryHandlingExportsProvider = (): Provider[] => {
-  return [
-    {
-      provide: QueryGateway,
-      useFactory: (comandBus) => new QueryGateway(comandBus),
-      inject: [InMemoryQueryBus],
-    },
-  ]
-}
+export const createQueryHandlingExportsProvider = (): Provider[] => [
+  {
+    provide: QueryGateway,
+    useFactory: (comandBus) => new QueryGateway(comandBus),
+    inject: [InMemoryQueryBus],
+  },
+]

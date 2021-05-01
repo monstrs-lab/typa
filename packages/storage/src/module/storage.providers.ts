@@ -9,28 +9,22 @@ import { StorageModuleOptions }          from './storage-module-options.interfac
 import { TYPA_STORAGE_MODULE_OPTIONS }   from './storage.constants'
 import { TypeOrmConfig }                 from './typeorm.config'
 
-export const createStorageOptionsProvider = (options?: StorageModuleOptions): Provider[] => {
-  return [
-    {
-      provide: TYPA_STORAGE_MODULE_OPTIONS,
-      useValue: options || {
-        type: 'inmemory',
-      },
+export const createStorageOptionsProvider = (options?: StorageModuleOptions): Provider[] => [
+  {
+    provide: TYPA_STORAGE_MODULE_OPTIONS,
+    useValue: options || {
+      type: 'inmemory',
     },
-  ]
-}
+  },
+]
 
-export const createStorageProvider = (): Provider[] => {
-  return []
-}
+export const createStorageProvider = (): Provider[] => []
 
-export const createStorageExportsProvider = (): Provider[] => {
-  return [
-    TypeOrmConfig,
-    LockStore,
-    ConsumerProgressStore,
-    DomainEventStore,
-    DomainEventPriorityQueueStore,
-    CommandPriorityQueueStore,
-  ]
-}
+export const createStorageExportsProvider = (): Provider[] => [
+  TypeOrmConfig,
+  LockStore,
+  ConsumerProgressStore,
+  DomainEventStore,
+  DomainEventPriorityQueueStore,
+  CommandPriorityQueueStore,
+]

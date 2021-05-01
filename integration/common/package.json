@@ -12,11 +12,11 @@
     "@nestjs/testing": "^7.4.4",
     "@nestjs/typeorm": "^7.1.4",
     "@typa/common": "workspace:0.0.15",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.23",
     "find-root": "*",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.7",
     "typeorm": "^0.2",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.2"
   }
 }

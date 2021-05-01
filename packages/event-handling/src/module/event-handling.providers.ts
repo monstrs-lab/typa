@@ -11,24 +11,21 @@ import { TYPA_EVENT_HANDLING_MODULE_OPTIONS } from './event-handling.constants'
 
 export const createEventHandlingOptionsProvider = (
   options?: EventHandlingModuleOptions
-): Provider[] => {
-  return [
-    {
-      provide: TYPA_EVENT_HANDLING_MODULE_OPTIONS,
-      useValue: options || {},
-    },
-  ]
-}
+): Provider[] => [
+  {
+    provide: TYPA_EVENT_HANDLING_MODULE_OPTIONS,
+    useValue: options || {},
+  },
+]
 
-export const createEventHandlingProvider = (): Provider[] => {
-  return [
-    EventHandlingMetadataAccessor,
-    EventHandlingMetadataExplorer,
-    EventHandlingMetadataRegistry,
-    DomanEventsWorker,
-  ]
-}
+export const createEventHandlingProvider = (): Provider[] => [
+  EventHandlingMetadataAccessor,
+  EventHandlingMetadataExplorer,
+  EventHandlingMetadataRegistry,
+  DomanEventsWorker,
+]
 
-export const createEventHandlingExportsProvider = (): Provider[] => {
-  return [DomainEventProcessor, DomainEventPublisher]
-}
+export const createEventHandlingExportsProvider = (): Provider[] => [
+  DomainEventProcessor,
+  DomainEventPublisher,
+]

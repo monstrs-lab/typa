@@ -7,26 +7,25 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rm -r -f dist",
-    "prepublishOnly": "yarn run build",
-    "build": "mctl library build"
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
   },
   "dependencies": {
     "@monstrs/logger": "^0.0.4",
     "@typa/storage": "workspace:0.0.15",
-    "lodash": "^4.17.20",
-    "uuid": "^8.3.0",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2",
     "wolkenkit": "4.0.0-ctp.6"
   },
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.59",
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/testing": "^7.4.4",
     "@typa/event-handling": "workspace:0.0.15",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.3",
-    "streamtoarray": "^3.0.0"
+    "rxjs": "6.6.7",
+    "streamtoarray": "^3.0.2"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.3.2",

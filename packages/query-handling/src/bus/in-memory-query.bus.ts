@@ -27,8 +27,8 @@ export class InMemoryQueryBus implements IQueryBus {
     return this.transformToObservable(handler.handle(query))
   }
 
-  protected isObservable(input: unknown): input is Observable<any> {
-    return input && isFunction((input as Observable<any>).subscribe)
+  protected isObservable(input): Boolean {
+    return isFunction(input?.subscribe)
   }
 
   protected transformToObservable<T = any>(resultOrDeffered: any): Observable<T> {
