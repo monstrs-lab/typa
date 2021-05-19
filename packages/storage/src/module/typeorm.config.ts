@@ -16,6 +16,7 @@ import { CommandPriorityQueue }         from '../priority-queue-store'
 import { DomainEventPriorityQueueItem } from '../priority-queue-store'
 import { DomainEventPriorityQueue }     from '../priority-queue-store'
 import { MigrationsStorage }            from './migrations.storage'
+import { EntitiesStorage }              from './entities.storage'
 import { StorageModuleOptions }         from './storage-module-options.interface'
 import { PostgresStorageOptions }       from './storage-module-options.interface'
 import { TYPA_STORAGE_MODULE_OPTIONS }  from './storage.constants'
@@ -52,6 +53,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       synchronize: false,
       dropSchema: false,
       entities: [
+        ...EntitiesStorage.getEntities(),
         Lock,
         ConsumerProgress,
         DomainEventSnapshot,
