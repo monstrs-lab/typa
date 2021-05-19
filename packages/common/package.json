@@ -1,6 +1,6 @@
 {
   "name": "@typa/common",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -14,12 +14,12 @@
   "dependencies": {
     "@monstrs/logger": "^0.0.4",
     "@monstrs/typeorm-logger": "0.0.2",
-    "@typa/command-handling": "workspace:0.0.16",
-    "@typa/domain": "workspace:0.0.16",
-    "@typa/event-handling": "workspace:0.0.16",
-    "@typa/projection": "workspace:0.0.16",
+    "@typa/command-handling": "workspace:0.0.17",
+    "@typa/domain": "workspace:0.0.17",
+    "@typa/event-handling": "workspace:0.0.17",
+    "@typa/projection": "workspace:0.0.17",
     "@typa/query-handling": "workspace:0.0.16",
-    "@typa/storage": "workspace:0.0.16"
+    "@typa/storage": "workspace:0.0.17"
   },
   "devDependencies": {
     "@nestjs/common": "^7.4.4",
