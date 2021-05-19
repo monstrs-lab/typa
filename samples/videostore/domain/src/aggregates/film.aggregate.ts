@@ -1,17 +1,17 @@
-import { Aggregate }            from '@typa/common'
-import { CommandHandler }       from '@typa/common'
-import { Command }              from '@typa/common'
-import { ApplyEvent }           from '@typa/common'
-import { EventSourcingHandler } from '@typa/common'
-import { DomainEvent }          from '@typa/common'
+import { Aggregate }             from '@typa/common'
+import { CommandHandler }        from '@typa/common'
+import { Command }               from '@typa/common'
+import { ApplyEvent }            from '@typa/common'
+import { AggregateEventHandler } from '@typa/common'
+import { DomainEvent }           from '@typa/common'
 
-import { CreateFilmCommand }    from '../commands'
-import { RemoveFilmCommand }    from '../commands'
-import { FilmFormat }           from '../constants'
-import { FilmType }             from '../constants'
-import { FilmCreatedEvent }     from '../events'
-import { FilmRemovedEvent }     from '../events'
-import { Customer }             from './customer.aggregate'
+import { CreateFilmCommand }     from '../commands'
+import { RemoveFilmCommand }     from '../commands'
+import { FilmFormat }            from '../constants'
+import { FilmType }              from '../constants'
+import { FilmCreatedEvent }      from '../events'
+import { FilmRemovedEvent }      from '../events'
+import { Customer }              from './customer.aggregate'
 
 @Aggregate()
 export class Film {
@@ -52,7 +52,7 @@ export class Film {
     )
   }
 
-  @EventSourcingHandler(FilmCreatedEvent)
+  @AggregateEventHandler(FilmCreatedEvent)
   onCreated(@DomainEvent event: FilmCreatedEvent) {
     this.filmId = event.filmId
     this.title = event.title

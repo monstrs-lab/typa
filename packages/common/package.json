@@ -15,8 +15,8 @@
     "@monstrs/logger": "^0.0.4",
     "@monstrs/typeorm-logger": "0.0.2",
     "@typa/command-handling": "workspace:0.0.15",
+    "@typa/domain": "workspace:0.0.15",
     "@typa/event-handling": "workspace:0.0.15",
-    "@typa/event-sourcing": "workspace:0.0.15",
     "@typa/projection": "workspace:0.0.15",
     "@typa/query-handling": "workspace:0.0.15",
     "@typa/storage": "workspace:0.0.15"

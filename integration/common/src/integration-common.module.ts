@@ -1,9 +1,10 @@
-import { Module }        from '@nestjs/common'
+import { Module }           from '@nestjs/common'
 
-import { TypaModule }    from '@typa/common'
-import { TypaEnvConfig } from '@typa/common'
+import { TypaModule }       from '@typa/common'
+import { TypaEnvConfig }    from '@typa/common'
 
-import { DomainModule }  from './domain'
+import { DomainModule }     from './domain'
+import { ProjectionModule } from './projection'
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { DomainModule }  from './domain'
       useClass: TypaEnvConfig,
     }),
     DomainModule,
+    ProjectionModule,
   ],
 })
 export class IntegrationCommonModule {}

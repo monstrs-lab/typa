@@ -1,5 +1,4 @@
 export * from './decorators'
 export * from './interfaces'
-export * from './processor'
 export * from './publisher'
 export * from './module'
