@@ -4,7 +4,7 @@ import { Module }                               from '@nestjs/common'
 import { Test }                                 from '@nestjs/testing'
 
 import { TypaEventHandlingModule }              from '@typa/event-handling'
-import { TypaEventSourcingModule }              from '@typa/event-sourcing'
+import { TypaDomainModule }                     from '@typa/domain'
 import { TypaStorageModule }                    from '@typa/storage'
 
 import { CommandGateway }                       from '../gateway'
@@ -24,7 +24,7 @@ describe('command-handling', () => {
       module = await Test.createTestingModule({
         imports: [
           TypaStorageModule.register(),
-          TypaEventSourcingModule.register(),
+          TypaDomainModule.register(),
           TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.register(),
         ],
@@ -38,7 +38,7 @@ describe('command-handling', () => {
       module = await Test.createTestingModule({
         imports: [
           TypaStorageModule.register(),
-          TypaEventSourcingModule.register(),
+          TypaDomainModule.register(),
           TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.registerAsync({
             useFactory: () => ({}),
@@ -60,7 +60,7 @@ describe('command-handling', () => {
       module = await Test.createTestingModule({
         imports: [
           TypaStorageModule.register(),
-          TypaEventSourcingModule.register(),
+          TypaDomainModule.register(),
           TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.registerAsync({
             useClass: TestCommandHandlingModuleOptions,
@@ -85,7 +85,7 @@ describe('command-handling', () => {
       module = await Test.createTestingModule({
         imports: [
           TypaStorageModule.register(),
-          TypaEventSourcingModule.register(),
+          TypaDomainModule.register(),
           TypaEventHandlingModule.register(),
           TypaCommandHandlingModule.registerAsync({
             imports: [

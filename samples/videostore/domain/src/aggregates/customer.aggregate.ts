@@ -2,7 +2,7 @@ import { Aggregate }             from '@typa/common'
 import { CommandHandler }        from '@typa/common'
 import { Command }               from '@typa/common'
 import { ApplyEvent }            from '@typa/common'
-import { EventSourcingHandler }  from '@typa/common'
+import { AggregateEventHandler } from '@typa/common'
 import { DomainEvent }           from '@typa/common'
 
 import { CreateCustomerCommand } from '../commands'
@@ -27,7 +27,7 @@ export class Customer {
     apply(new CustomerCreatedEvent(command.customerId, command.fullName, command.phoneNumber))
   }
 
-  @EventSourcingHandler(CustomerCreatedEvent)
+  @AggregateEventHandler(CustomerCreatedEvent)
   onCreated(@DomainEvent event: CustomerCreatedEvent) {
     this.customerId = event.customerId
     this.fullName = event.fullName

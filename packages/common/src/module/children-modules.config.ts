@@ -4,8 +4,8 @@ import { CommandHandlingOptionsFactory } from '@typa/command-handling'
 import { CommandHandlingModuleOptions }  from '@typa/command-handling'
 import { EventHandlingOptionsFactory }   from '@typa/event-handling'
 import { EventHandlingModuleOptions }    from '@typa/event-handling'
-import { EventSourcingOptionsFactory }   from '@typa/event-sourcing'
-import { EventSourcingModuleOptions }    from '@typa/event-sourcing'
+import { DomainOptionsFactory }          from '@typa/domain'
+import { DomainModuleOptions }           from '@typa/domain'
 import { QueryHandlingOptionsFactory }   from '@typa/query-handling'
 import { QueryHandlingModuleOptions }    from '@typa/query-handling'
 import { StorageOptionsFactory }         from '@typa/storage'
@@ -19,7 +19,7 @@ import { TypaModuleOptions }             from './type-module-options.interface'
 export class ChildrenModulesConfig
   implements
     StorageOptionsFactory,
-    EventSourcingOptionsFactory,
+    DomainOptionsFactory,
     CommandHandlingOptionsFactory,
     EventHandlingOptionsFactory,
     QueryHandlingOptionsFactory {
@@ -33,7 +33,7 @@ export class ChildrenModulesConfig
     )
   }
 
-  createEventSourcingOptions(): EventSourcingModuleOptions {
+  createDomainOptions(): DomainModuleOptions {
     return {}
   }
 
