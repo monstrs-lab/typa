@@ -1,0 +1,5 @@
+releases:
+  "@typa/command-handling": patch
+  "@typa/common": patch
+  "@typa/domain": patch
+  "@typa/event-handling": patch
