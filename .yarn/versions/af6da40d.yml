@@ -2,7 +2,7 @@ releases:
   "@typa/command-handling": patch
   "@typa/common": patch
   "@typa/event-handling": patch
-  "@typa/event-sourcing": patch
   "@typa/projection": patch
+  "@typa/domain": patch
   "@typa/query-handling": patch
   "@typa/storage": patch
