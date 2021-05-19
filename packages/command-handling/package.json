@@ -1,6 +1,6 @@
 {
   "name": "@typa/command-handling",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@monstrs/logger": "^0.0.4",
-    "@typa/domain": "workspace:0.0.15",
-    "@typa/event-handling": "workspace:0.0.15",
-    "@typa/storage": "workspace:0.0.15",
+    "@typa/domain": "workspace:0.0.16",
+    "@typa/event-handling": "workspace:0.0.16",
+    "@typa/storage": "workspace:0.0.16",
     "lodash": "^4.17.21",
     "p-forever": "2.1.0",
     "uuid": "^8.3.2",
