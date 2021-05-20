@@ -1,6 +1,6 @@
 {
   "name": "@typa/projection",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,7 +12,7 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/storage": "workspace:0.0.19"
   },
   "devDependencies": {
     "@nestjs/common": "^7.4.4",

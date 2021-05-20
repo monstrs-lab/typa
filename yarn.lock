@@ -605,7 +605,7 @@ __metadata:
     "@nestjs/platform-express": ^7.4.4
     "@nestjs/testing": ^7.4.4
     "@nestjs/typeorm": ^7.1.4
-    "@typa/common": "workspace:0.0.19"
+    "@typa/common": "workspace:0.0.20"
     "@types/jest": ^26.0.23
     find-root: "*"
     reflect-metadata: ^0.1.13
@@ -1508,7 +1508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typa/command-handling@workspace:0.0.18, @typa/command-handling@workspace:packages/command-handling":
+"@typa/command-handling@workspace:0.0.19, @typa/command-handling@workspace:packages/command-handling":
   version: 0.0.0-use.local
   resolution: "@typa/command-handling@workspace:packages/command-handling"
   dependencies:
@@ -1516,9 +1516,9 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
-    "@typa/domain": "workspace:0.0.18"
-    "@typa/event-handling": "workspace:0.0.18"
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/domain": "workspace:0.0.19"
+    "@typa/event-handling": "workspace:0.0.19"
+    "@typa/storage": "workspace:0.0.19"
     lodash: ^4.17.21
     p-forever: 2.1.0
     reflect-metadata: 0.1.13
@@ -1534,19 +1534,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/common@workspace:0.0.19, @typa/common@workspace:packages/common":
+"@typa/common@workspace:0.0.20, @typa/common@workspace:packages/common":
   version: 0.0.0-use.local
   resolution: "@typa/common@workspace:packages/common"
   dependencies:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
-    "@typa/command-handling": "workspace:0.0.18"
-    "@typa/domain": "workspace:0.0.18"
-    "@typa/event-handling": "workspace:0.0.18"
-    "@typa/projection": "workspace:0.0.18"
+    "@typa/command-handling": "workspace:0.0.19"
+    "@typa/domain": "workspace:0.0.19"
+    "@typa/event-handling": "workspace:0.0.19"
+    "@typa/projection": "workspace:0.0.19"
     "@typa/query-handling": "workspace:0.0.16"
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/storage": "workspace:0.0.19"
     reflect-metadata: 0.1.13
     rxjs: 6.6.7
   peerDependencies:
@@ -1557,7 +1557,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/domain@workspace:0.0.18, @typa/domain@workspace:packages/domain":
+"@typa/domain@workspace:0.0.19, @typa/domain@workspace:packages/domain":
   version: 0.0.0-use.local
   resolution: "@typa/domain@workspace:packages/domain"
   dependencies:
@@ -1565,8 +1565,8 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
-    "@typa/event-handling": "workspace:0.0.18"
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/event-handling": "workspace:0.0.19"
+    "@typa/storage": "workspace:0.0.19"
     lodash: ^4.17.21
     reflect-metadata: 0.1.13
     rxjs: 6.6.7
@@ -1581,7 +1581,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/event-handling@workspace:0.0.18, @typa/event-handling@workspace:packages/event-handling":
+"@typa/event-handling@workspace:0.0.19, @typa/event-handling@workspace:packages/event-handling":
   version: 0.0.0-use.local
   resolution: "@typa/event-handling@workspace:packages/event-handling"
   dependencies:
@@ -1589,7 +1589,7 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/storage": "workspace:0.0.19"
     p-forever: 2.1.0
     reflect-metadata: 0.1.13
     rxjs: 6.6.7
@@ -1603,7 +1603,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/projection@workspace:0.0.18, @typa/projection@workspace:packages/projection":
+"@typa/projection@workspace:0.0.19, @typa/projection@workspace:packages/projection":
   version: 0.0.0-use.local
   resolution: "@typa/projection@workspace:packages/projection"
   dependencies:
@@ -1611,7 +1611,7 @@ __metadata:
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
     "@nestjs/typeorm": ^7.1.4
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/storage": "workspace:0.0.19"
     reflect-metadata: 0.1.13
     rxjs: 6.6.7
     typeorm: ^0.2
@@ -1641,7 +1641,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/storage@workspace:0.0.18, @typa/storage@workspace:packages/storage":
+"@typa/storage@workspace:0.0.19, @typa/storage@workspace:packages/storage":
   version: 0.0.0-use.local
   resolution: "@typa/storage@workspace:packages/storage"
   dependencies:
@@ -2564,7 +2564,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
-    "@typa/common": "workspace:0.0.19"
+    "@typa/common": "workspace:0.0.20"
   languageName: unknown
   linkType: soft
 
@@ -2575,7 +2575,7 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/typeorm": ^7.1.4
-    "@typa/common": "workspace:0.0.19"
+    "@typa/common": "workspace:0.0.20"
     "@types/node": ^14.14.43
     "@videostore/domain": "workspace:0.0.1"
     ts-node: ^9.1.1
@@ -2589,7 +2589,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
-    "@typa/common": "workspace:0.0.19"
+    "@typa/common": "workspace:0.0.20"
     "@videostore/domain": "workspace:0.0.1"
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
@@ -2604,7 +2604,7 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/platform-express": ^7.4.4
-    "@typa/common": "workspace:0.0.19"
+    "@typa/common": "workspace:0.0.20"
     "@videostore/domain": "workspace:0.0.1"
     "@videostore/projection": "workspace:0.0.1"
     "@videostore/rest-adapter": "workspace:0.0.1"

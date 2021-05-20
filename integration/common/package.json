@@ -11,7 +11,7 @@
     "@nestjs/platform-express": "^7.4.4",
     "@nestjs/testing": "^7.4.4",
     "@nestjs/typeorm": "^7.1.4",
-    "@typa/common": "workspace:0.0.19",
+    "@typa/common": "workspace:0.0.20",
     "@types/jest": "^26.0.23",
     "find-root": "*",
     "reflect-metadata": "^0.1.13",
