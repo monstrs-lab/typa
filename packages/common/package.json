@@ -12,12 +12,14 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
+    "@nestjs/typeorm": "^7.1.4",
     "@typa/command-handling": "workspace:0.0.18",
     "@typa/domain": "workspace:0.0.18",
     "@typa/event-handling": "workspace:0.0.18",
     "@typa/projection": "workspace:0.0.18",
     "@typa/query-handling": "workspace:0.0.16",
-    "@typa/storage": "workspace:0.0.18"
+    "@typa/storage": "workspace:0.0.18",
+    "typeorm": "^0.2"
   },
   "devDependencies": {
     "@nestjs/common": "^7.4.4",
