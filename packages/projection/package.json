@@ -1,6 +1,6 @@
 {
   "name": "@typa/projection",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,7 +12,7 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
-    "@typa/storage": "workspace:0.0.17",
+    "@typa/storage": "workspace:0.0.18",
     "typeorm": "^0.2"
   },
   "devDependencies": {
