@@ -145,7 +145,9 @@ export class DomainEventStore implements BaseDomainEventStore {
     }
 
     onData = (data: any): void => {
-      const domainEvent = new DomainEvent<DomainEventData>(data.domainEvent)
+      const domainEvent = new DomainEvent<DomainEventData>(
+        data.domainEvent || data.event_domainEvent
+      )
 
       passThrough.write(domainEvent)
     }
