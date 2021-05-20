@@ -12,8 +12,7 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
-    "@typa/storage": "workspace:0.0.18",
-    "typeorm": "^0.2"
+    "@typa/storage": "workspace:0.0.18"
   },
   "devDependencies": {
     "@nestjs/common": "^7.4.4",
@@ -21,12 +20,12 @@
     "@nestjs/testing": "^7.4.4",
     "@nestjs/typeorm": "^7.1.4",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.7"
+    "rxjs": "6.6.7",
+    "typeorm": "^0.2"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.3.2",
     "@nestjs/core": "^7.3.2",
-    "@nestjs/typeorm": "^7.1.4",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },

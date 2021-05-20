@@ -1,9 +1,8 @@
-export * from '@nestjs/typeorm'
-
 export * from './module'
 export * from './config'
 
 export { StorageType } from '@typa/storage'
+export { InjectRepository } from '@typa/storage'
 
 export { Aggregate } from '@typa/domain'
 export { DomainEvent } from '@typa/domain'
