@@ -1,3 +1,5 @@
+export * from '@nestjs/typeorm'
+
 export * from './module'
 export * from './config'
 
