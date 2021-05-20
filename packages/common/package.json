@@ -1,6 +1,6 @@
 {
   "name": "@typa/common",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
