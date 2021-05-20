@@ -1541,7 +1541,6 @@ __metadata:
     "@nestjs/common": ^7.4.4
     "@nestjs/core": ^7.4.4
     "@nestjs/testing": ^7.4.4
-    "@nestjs/typeorm": ^7.1.4
     "@typa/command-handling": "workspace:0.0.18"
     "@typa/domain": "workspace:0.0.18"
     "@typa/event-handling": "workspace:0.0.18"
@@ -1550,11 +1549,9 @@ __metadata:
     "@typa/storage": "workspace:0.0.18"
     reflect-metadata: 0.1.13
     rxjs: 6.6.7
-    typeorm: ^0.2
   peerDependencies:
     "@nestjs/common": ^7.3.2
     "@nestjs/core": ^7.3.2
-    "@nestjs/typeorm": ^7.1.4
     reflect-metadata: ^0.1.12
     rxjs: ^6.3.3
   languageName: unknown
@@ -1621,7 +1618,6 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^7.3.2
     "@nestjs/core": ^7.3.2
-    "@nestjs/typeorm": ^7.1.4
     reflect-metadata: ^0.1.12
     rxjs: ^6.3.3
   languageName: unknown
@@ -1673,7 +1669,6 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^7.3.2
     "@nestjs/core": ^7.3.2
-    "@nestjs/typeorm": ^7.1.4
     reflect-metadata: ^0.1.12
     rxjs: ^6.3.3
   languageName: unknown

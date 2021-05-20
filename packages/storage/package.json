@@ -14,6 +14,7 @@
   "dependencies": {
     "@monstrs/logger": "^0.0.4",
     "@monstrs/typeorm-logger": "^0.0.2",
+    "@nestjs/typeorm": "^7.1.4",
     "p-queue": "^6.6.2",
     "pg": "^8.6.0",
     "pg-query-stream": "^3.4.2",
@@ -27,7 +28,6 @@
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
     "@nestjs/testing": "^7.4.4",
-    "@nestjs/typeorm": "^7.1.4",
     "@types/lodash": "^4.14.168",
     "@types/stream-array": "^1.1.0",
     "@types/uuid": "^8.3.0",
@@ -39,7 +39,6 @@
   "peerDependencies": {
     "@nestjs/common": "^7.3.2",
     "@nestjs/core": "^7.3.2",
-    "@nestjs/typeorm": "^7.1.4",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },
