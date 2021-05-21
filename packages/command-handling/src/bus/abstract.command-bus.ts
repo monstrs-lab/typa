@@ -22,11 +22,12 @@ export interface HandleResult {
 
 @Injectable()
 export abstract class AbstractCommandBus<CommandBase extends ICommand = ICommand>
-  implements ICommandBus<CommandBase> {
+  implements ICommandBus<CommandBase>
+{
   constructor(private readonly metadataRegistry: CommandHandlingMetadataRegistry) {}
 
   dispatch<T extends CommandBase>(command: T): Observable<any> {
-    const commandName = this.getCommandName((command as any) as Function)
+    const commandName = this.getCommandName(command as any as Function)
 
     const handler = this.metadataRegistry.getCommandHandler(commandName)
 

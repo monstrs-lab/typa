@@ -7,18 +7,18 @@ import { assignMetadata }               from './param.utils'
 export const QUERY_HANDLER_ARGS_METADATA = '__queryHandlerArguments__'
 export const QUERY_HANDLER_METADATA = '__queryHandler__'
 
-export const createQueryHandlerParamDecorator = (
-  paramtype: QueryHandlerParamType
-): ParameterDecorator => (target, key, index) => {
-  const args = Reflect.getMetadata(QUERY_HANDLER_ARGS_METADATA, target.constructor, key) || {}
+export const createQueryHandlerParamDecorator =
+  (paramtype: QueryHandlerParamType): ParameterDecorator =>
+  (target, key, index) => {
+    const args = Reflect.getMetadata(QUERY_HANDLER_ARGS_METADATA, target.constructor, key) || {}
 
-  Reflect.defineMetadata(
-    QUERY_HANDLER_ARGS_METADATA,
-    assignMetadata(args, paramtype, index),
-    target.constructor,
-    key
-  )
-}
+    Reflect.defineMetadata(
+      QUERY_HANDLER_ARGS_METADATA,
+      assignMetadata(args, paramtype, index),
+      target.constructor,
+      key
+    )
+  }
 
 export interface QueryHandlerMetadata {
   query: IQueryConstructor

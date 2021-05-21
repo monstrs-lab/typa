@@ -287,11 +287,10 @@ describe('storage', () => {
 
         await domainEventStore.storeDomainEvents({ domainEvents: [domainEvent] })
 
-        const hasDomainEventsWithCausationId = await domainEventStore.hasDomainEventsWithCausationId(
-          {
+        const hasDomainEventsWithCausationId =
+          await domainEventStore.hasDomainEventsWithCausationId({
             causationId: uuid(),
-          }
-        )
+          })
 
         expect(hasDomainEventsWithCausationId).toBe(false)
       })
@@ -358,11 +357,10 @@ describe('storage', () => {
           domainEvents: [domainEvent1, domainEvent2, domainEvent3],
         })
 
-        const hasDomainEventsWithCausationId = await domainEventStore.hasDomainEventsWithCausationId(
-          {
+        const hasDomainEventsWithCausationId =
+          await domainEventStore.hasDomainEventsWithCausationId({
             causationId,
-          }
-        )
+          })
 
         expect(hasDomainEventsWithCausationId).toBe(true)
       })

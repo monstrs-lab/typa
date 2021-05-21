@@ -15,7 +15,8 @@ import { getIndexOfParent }        from './wolkenkit'
 import { getIndexOfRightChild }    from './wolkenkit'
 
 export class PriorityQueueStore<TItem, TItemIdentifier>
-  implements BasePriorityQueueStore<TItem, TItemIdentifier> {
+  implements BasePriorityQueueStore<TItem, TItemIdentifier>
+{
   protected doesIdentifierMatchItem: DoesIdentifierMatchItem<TItem, TItemIdentifier>
 
   protected expirationTime: number
