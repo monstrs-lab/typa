@@ -1,6 +1,7 @@
 export * from './module'
 export * from './config'
 
+export { TypaProjectionModule } from '@typa/storage'
 export { StorageType } from '@typa/storage'
 export { InjectRepository } from '@typa/storage'
 
@@ -22,5 +23,3 @@ export { EventHandler } from '@typa/event-handling'
 export { Query } from '@typa/query-handling'
 export { QueryHandler } from '@typa/query-handling'
 export { QueryGateway } from '@typa/query-handling'
-
-export { TypaProjectionModule } from '@typa/projection'

@@ -1,12 +1,9 @@
-/* eslint-disable max-classes-per-file */
-
 import { Test }                 from '@nestjs/testing'
 import { Connection }           from 'typeorm'
 import { MigrationInterface }   from 'typeorm'
 import { QueryRunner }          from 'typeorm'
 
-import { TypaStorageModule }    from '@typa/storage'
-
+import { TypaStorageModule }    from '../module'
 import { TypaProjectionModule } from './projection.module'
 
 describe('storage', () => {
