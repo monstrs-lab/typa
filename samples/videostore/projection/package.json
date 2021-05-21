@@ -11,7 +11,7 @@
     "@nestjs/common": "^7.6.17",
     "@nestjs/core": "^7.6.17",
     "@nestjs/typeorm": "^7.1.5",
-    "@typa/common": "workspace:0.0.22",
+    "@typa/common": "workspace:0.0.23",
     "@types/node": "^14.17.0",
     "@videostore/domain": "workspace:0.0.1",
     "ts-node": "^9.1.1",

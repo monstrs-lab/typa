@@ -1,6 +1,6 @@
 {
   "name": "@typa/storage",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
