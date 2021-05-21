@@ -7,18 +7,18 @@ import { assignMetadata }               from './param.utils'
 export const EVENT_HANDLER_ARGS_METADATA = '__eventHandlerArguments__'
 export const EVENT_HANDLER_METADATA = '__eventHandler__'
 
-export const createEventHandlerParamDecorator = (
-  paramtype: EventHandlerParamType
-): ParameterDecorator => (target, key, index) => {
-  const args = Reflect.getMetadata(EVENT_HANDLER_ARGS_METADATA, target.constructor, key) || {}
+export const createEventHandlerParamDecorator =
+  (paramtype: EventHandlerParamType): ParameterDecorator =>
+  (target, key, index) => {
+    const args = Reflect.getMetadata(EVENT_HANDLER_ARGS_METADATA, target.constructor, key) || {}
 
-  Reflect.defineMetadata(
-    EVENT_HANDLER_ARGS_METADATA,
-    assignMetadata(args, paramtype, index),
-    target.constructor,
-    key
-  )
-}
+    Reflect.defineMetadata(
+      EVENT_HANDLER_ARGS_METADATA,
+      assignMetadata(args, paramtype, index),
+      target.constructor,
+      key
+    )
+  }
 
 export interface EventHandlerMetadata {
   event: IEventConstructor

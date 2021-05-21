@@ -7,18 +7,18 @@ import { assignMetadata }               from './param.utils'
 export const COMMAND_HANDLER_ARGS_METADATA = '__commandHandlerArguments__'
 export const COMMAND_HANDLER_METADATA = '__commandHandler__'
 
-export const createCommandHandlerParamDecorator = (
-  paramtype: CommandHandlerParamType
-): ParameterDecorator => (target, key, index) => {
-  const args = Reflect.getMetadata(COMMAND_HANDLER_ARGS_METADATA, target.constructor, key) || {}
+export const createCommandHandlerParamDecorator =
+  (paramtype: CommandHandlerParamType): ParameterDecorator =>
+  (target, key, index) => {
+    const args = Reflect.getMetadata(COMMAND_HANDLER_ARGS_METADATA, target.constructor, key) || {}
 
-  Reflect.defineMetadata(
-    COMMAND_HANDLER_ARGS_METADATA,
-    assignMetadata(args, paramtype, index),
-    target.constructor,
-    key
-  )
-}
+    Reflect.defineMetadata(
+      COMMAND_HANDLER_ARGS_METADATA,
+      assignMetadata(args, paramtype, index),
+      target.constructor,
+      key
+    )
+  }
 
 const addStateParamMetadata = (target, key) => {
   const args = Reflect.getMetadata(COMMAND_HANDLER_ARGS_METADATA, target.constructor, key) || {}

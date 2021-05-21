@@ -22,7 +22,8 @@ export class ChildrenModulesConfig
     DomainOptionsFactory,
     CommandHandlingOptionsFactory,
     EventHandlingOptionsFactory,
-    QueryHandlingOptionsFactory {
+    QueryHandlingOptionsFactory
+{
   constructor(@Inject(TYPA_MODULE_OPTIONS) private readonly options: TypaModuleOptions) {}
 
   createStorageOptions(): StorageModuleOptions {
