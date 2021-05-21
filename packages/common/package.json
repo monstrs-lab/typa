@@ -1,6 +1,6 @@
 {
   "name": "@typa/common",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -12,11 +12,11 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
-    "@typa/command-handling": "workspace:0.0.20",
-    "@typa/domain": "workspace:0.0.20",
-    "@typa/event-handling": "workspace:0.0.20",
+    "@typa/command-handling": "workspace:0.0.21",
+    "@typa/domain": "workspace:0.0.21",
+    "@typa/event-handling": "workspace:0.0.21",
     "@typa/query-handling": "workspace:0.0.16",
-    "@typa/storage": "workspace:0.0.20"
+    "@typa/storage": "workspace:0.0.21"
   },
   "devDependencies": {
     "@nestjs/common": "^7.4.4",
