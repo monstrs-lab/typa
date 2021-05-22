@@ -1,6 +1,6 @@
-import { InjectRepository }     from '@nestjs/typeorm'
 import { Repository }           from 'typeorm'
 
+import { InjectRepository }     from '@typa/common'
 import { Query, QueryHandler }  from '@typa/common'
 import { GetCustomerByIdQuery } from '@videostore/domain'
 

@@ -48,7 +48,7 @@ export class CommandHandlingMember {
       events.push(event)
     })
 
-    if (result instanceof Error || result instanceof AssertionError) {
+    if (result && result instanceof Error) {
       throw result
     }
 

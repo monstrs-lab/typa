@@ -2,7 +2,7 @@
   "name": "typa",
   "private": true,
   "devDependencies": {
-    "@monstrs/mctl-cli": "0.2.107",
+    "@monstrs/mctl-cli": "0.2.109",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.17.0",
     "husky": "6.0.0",
@@ -12,9 +12,5 @@
     "integration/*",
     "packages/*",
     "samples/**/*"
-  ],
-  "resolutions": {
-    "@monstrs/logger": "0.0.4",
-    "@types/node": "14.11.1"
-  }
+  ]
 }
