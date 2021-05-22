@@ -1,6 +1,6 @@
 {
   "name": "@typa/command-handling",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -27,9 +27,9 @@
     "@nestjs/common": "^7.6.17",
     "@nestjs/core": "^7.6.17",
     "@nestjs/testing": "^7.6.17",
-    "@typa/domain": "workspace:0.0.22",
-    "@typa/event-handling": "workspace:0.0.22",
-    "@typa/storage": "workspace:0.0.22",
+    "@typa/domain": "workspace:0.0.23",
+    "@typa/event-handling": "workspace:0.0.23",
+    "@typa/storage": "workspace:0.0.23",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.7"
   },

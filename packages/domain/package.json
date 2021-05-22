@@ -1,6 +1,6 @@
 {
   "name": "@typa/domain",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -23,8 +23,8 @@
   },
   "devDependencies": {
     "@nestjs/testing": "^7.6.17",
-    "@typa/event-handling": "workspace:0.0.22",
-    "@typa/storage": "workspace:0.0.22",
+    "@typa/event-handling": "workspace:0.0.23",
+    "@typa/storage": "workspace:0.0.23",
     "streamtoarray": "^3.0.3"
   },
   "publishConfig": {
