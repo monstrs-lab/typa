@@ -10,7 +10,7 @@
   "devDependencies": {
     "@nestjs/common": "^7.6.17",
     "@nestjs/core": "^7.6.17",
-    "@typa/common": "workspace:0.0.24",
+    "@typa/common": "workspace:0.0.25",
     "@types/node": "^14.17.0",
     "@videostore/domain": "workspace:0.0.1",
     "reflect-metadata": "^0.1.13",
