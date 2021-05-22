@@ -12,24 +12,18 @@
     "prepack": "yarn run build"
   },
   "dependencies": {
-    "@monstrs/logger": "^0.0.4",
-    "@typa/storage": "workspace:0.0.22",
+    "@monstrs/logger": "^0.0.6",
+    "@nestjs/common": "^7.6.17",
+    "@nestjs/core": "^7.6.17",
     "p-forever": "2.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.7",
     "validate-value": "^7.3.1",
     "wolkenkit": "4.0.0-ctp.6"
   },
   "devDependencies": {
-    "@nestjs/common": "^7.6.17",
-    "@nestjs/core": "^7.6.17",
     "@nestjs/testing": "^7.6.17",
-    "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.7"
-  },
-  "peerDependencies": {
-    "@nestjs/common": "^7.3.2",
-    "@nestjs/core": "^7.3.2",
-    "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.3.3"
+    "@typa/storage": "workspace:0.0.22"
   },
   "publishConfig": {
     "main": "dist/index.js",

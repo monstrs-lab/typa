@@ -1,6 +1,5 @@
 import { Provider }                             from '@nestjs/common'
 
-import { PriorityQueueCommandBus }              from '../bus'
 import { SimpleCommandBus }                     from '../bus'
 import { CommandGateway }                       from '../gateway'
 import { CommandHandlingMetadataAccessor }      from '../metadata'
@@ -22,7 +21,6 @@ export const createCommandHandlingProvider = (): Provider[] => [
   CommandHandlingMetadataAccessor,
   CommandHandlingMetadataExplorer,
   CommandHandlingMetadataRegistry,
-  PriorityQueueCommandBus,
   SimpleCommandBus,
 ]
 

@@ -1,7 +1,7 @@
 import { Injectable }          from '@nestjs/common'
-import { InjectRepository }    from '@nestjs/typeorm'
 import { Repository }          from 'typeorm'
 
+import { InjectRepository }    from '@typa/common'
 import { Event, EventHandler } from '@typa/common'
 import { FilmCreatedEvent }    from '@videostore/domain'
 

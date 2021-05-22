@@ -5,7 +5,7 @@ import { Test }                               from '@nestjs/testing'
 
 import { TypaStorageModule }                  from '@typa/storage'
 
-import { DomainEventPublisher }               from '../publisher'
+import { SimpleDomainEventPublisher }         from '../publisher'
 import { EventHandlingModuleOptions }         from './event-handling-module-options.interface'
 import { TYPA_EVENT_HANDLING_MODULE_OPTIONS } from './event-handling.constants'
 import { TypaEventHandlingModule }            from './event-handling.module'
@@ -24,7 +24,7 @@ describe('event-handling', () => {
       }).compile()
 
       expect(module.get(TYPA_EVENT_HANDLING_MODULE_OPTIONS)).toBeDefined()
-      expect(module.get(DomainEventPublisher)).toBeDefined()
+      expect(module.get(SimpleDomainEventPublisher)).toBeDefined()
     })
 
     it(`register async use factory`, async () => {
@@ -38,7 +38,7 @@ describe('event-handling', () => {
       }).compile()
 
       expect(module.get(TYPA_EVENT_HANDLING_MODULE_OPTIONS)).toBeDefined()
-      expect(module.get(DomainEventPublisher)).toBeDefined()
+      expect(module.get(SimpleDomainEventPublisher)).toBeDefined()
     })
 
     it(`register async use class`, async () => {
@@ -58,7 +58,7 @@ describe('event-handling', () => {
       }).compile()
 
       expect(module.get(TYPA_EVENT_HANDLING_MODULE_OPTIONS)).toBeDefined()
-      expect(module.get(DomainEventPublisher)).toBeDefined()
+      expect(module.get(SimpleDomainEventPublisher)).toBeDefined()
     })
 
     it(`register async use exists`, async () => {
@@ -88,7 +88,7 @@ describe('event-handling', () => {
       }).compile()
 
       expect(module.get(TYPA_EVENT_HANDLING_MODULE_OPTIONS)).toBeDefined()
-      expect(module.get(DomainEventPublisher)).toBeDefined()
+      expect(module.get(SimpleDomainEventPublisher)).toBeDefined()
     })
   })
 })
