@@ -4,6 +4,7 @@ import { ExternalContextCreator }             from '@nestjs/core/helpers/externa
 import { ParamMetadata }                      from '@nestjs/core/helpers/interfaces/params-metadata.interface'
 import { InstanceWrapper }                    from '@nestjs/core/injector/instance-wrapper'
 import { MetadataScanner }                    from '@nestjs/core/metadata-scanner'
+import { Logger }                             from '@monstrs/logger'
 
 import { DOMAIN_EVENT_ARGS_METADATA }         from '../decorators'
 import { AggregateEventHandlerParamsFactory } from './aggregate-event-handler-params.factory'
@@ -13,6 +14,8 @@ import { DomainMetadataRegistry }             from './domain-metadata.registry'
 
 @Injectable()
 export class DomainMetadataExplorer implements OnModuleInit {
+  private readonly logger = new Logger(DomainMetadataExplorer.name)
+
   private readonly eventSourcingHandlerParamsFactory = new AggregateEventHandlerParamsFactory()
 
   constructor(
@@ -69,7 +72,23 @@ export class DomainMetadataExplorer implements OnModuleInit {
     }
   }
 
+  getInstanceConstructorArguments(instance) {
+    try {
+      const proxy = new instance.constructor()
+
+      return Object.keys(proxy).filter(
+        (key) => instance[key] !== undefined && proxy[key] === undefined
+      )
+    } catch (error) {
+      this.logger.error(error)
+
+      return []
+    }
+  }
+
   createCallbackHandler(instance, key) {
+    const injectedProps = this.getInstanceConstructorArguments(instance)
+
     // eslint-disable-next-line func-names
     const callback = function (...args) {
       const state = args.pop()
@@ -78,7 +97,16 @@ export class DomainMetadataExplorer implements OnModuleInit {
 
       Object.getPrototypeOf(instance)[key].call(context, ...args)
 
-      return { ...context }
+      return Object.keys(context).reduce((result, contextKey) => {
+        if (injectedProps.includes(contextKey)) {
+          return result
+        }
+
+        return {
+          ...result,
+          [contextKey]: context[contextKey],
+        }
+      }, {})
     }
 
     const paramsFactory = this.eventSourcingHandlerParamsFactory
