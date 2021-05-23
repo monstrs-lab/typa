@@ -1,6 +1,6 @@
 {
   "name": "@typa/event-handling",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@nestjs/testing": "^7.6.17",
-    "@typa/storage": "workspace:0.0.23"
+    "@typa/storage": "workspace:0.0.24"
   },
   "publishConfig": {
     "main": "dist/index.js",

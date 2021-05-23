@@ -1,6 +1,6 @@
 {
   "name": "@typa/command-handling",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -15,8 +15,8 @@
     "@monstrs/logger": "^0.0.6",
     "@nestjs/common": "^7.6.17",
     "@nestjs/core": "^7.6.17",
-    "@typa/domain": "workspace:0.0.25",
-    "@typa/event-handling": "workspace:0.0.23",
+    "@typa/domain": "workspace:0.0.26",
+    "@typa/event-handling": "workspace:0.0.24",
     "lodash": "^4.17.21",
     "p-forever": "2.1.0",
     "reflect-metadata": "^0.1.13",
@@ -29,7 +29,7 @@
     "@nestjs/common": "^7.6.17",
     "@nestjs/core": "^7.6.17",
     "@nestjs/testing": "^7.6.17",
-    "@typa/storage": "workspace:0.0.23",
+    "@typa/storage": "workspace:0.0.24",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.7"
   },
