@@ -131,9 +131,7 @@ export class DomainEventStore implements BaseDomainEventStore {
   protected async streamDomainEvents(qb: SelectQueryBuilder<DomainEventEntity>): Promise<Readable> {
     const passThrough = new PassThrough({ objectMode: true })
 
-    const domainEventStream = this.connection.options.type.includes('sqlite')
-      ? streamifyArray(await qb.getMany())
-      : await qb.stream()
+    const domainEventStream = streamifyArray(await qb.getMany())
 
     // eslint-disable-next-line one-var
     let onData: (data: any) => void, onEnd: () => void, onError: (err: Error) => void
