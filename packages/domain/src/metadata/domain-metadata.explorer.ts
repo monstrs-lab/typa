@@ -5,6 +5,7 @@ import { ParamMetadata }                      from '@nestjs/core/helpers/interfa
 import { InstanceWrapper }                    from '@nestjs/core/injector/instance-wrapper'
 import { MetadataScanner }                    from '@nestjs/core/metadata-scanner'
 import { Logger }                             from '@monstrs/logger'
+import { plainToClassFromExist }              from 'class-transformer'
 
 import { DOMAIN_EVENT_ARGS_METADATA }         from '../decorators'
 import { AggregateEventHandlerParamsFactory } from './aggregate-event-handler-params.factory'
@@ -93,7 +94,10 @@ export class DomainMetadataExplorer implements OnModuleInit {
     const callback = function (...args) {
       const state = args.pop()
 
-      const context = Object.assign(Object.create(Object.getPrototypeOf(instance)), this, state)
+      const context = plainToClassFromExist(
+        Object.assign(Object.create(Object.getPrototypeOf(instance)), this),
+        state
+      )
 
       Object.getPrototypeOf(instance)[key].call(context, ...args)
 
