@@ -1,0 +1,5 @@
+export * from './integer.value-object'
+export * from './boolean.value-object'
+export * from './string.value-object'
+export * from './float.value-object'
+export * from './value-object'
