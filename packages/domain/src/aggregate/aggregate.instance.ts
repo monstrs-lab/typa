@@ -1,5 +1,4 @@
 import { Logger }                 from '@monstrs/logger'
-import { classToPlain }           from 'class-transformer'
 import { cloneDeep }              from 'lodash'
 import { v4 as uuid }             from 'uuid'
 
@@ -116,7 +115,7 @@ export class AggregateInstance<TState extends State> {
 
     // eslint-disable-next-line no-restricted-syntax
     for await (const event of commandEvents) {
-      await this.publishDomainEvent(command, event.constructor.name, classToPlain(event))
+      await this.publishDomainEvent(command, event.constructor.name, { ...event })
     }
 
     await this.storeCurrentAggregateState()

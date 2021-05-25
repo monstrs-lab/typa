@@ -1,7 +1,6 @@
 import { DomainEvent }       from 'wolkenkit/build/lib/common/elements/DomainEvent'
 import { DomainEventData }   from 'wolkenkit/build/lib/common/elements/DomainEventData'
 import { State }             from 'wolkenkit/build/lib/common/elements/State'
-import { plainToClass }      from 'class-transformer'
 
 import { IEventConstructor } from '@typa/event-handling'
 import { IEvent }            from '@typa/event-handling'
@@ -22,7 +21,7 @@ export class AggregateEventHandlingMember {
   ): Promise<TState> | TState {
     const { event: Event, handler } = this
 
-    const event = plainToClass(Event, domainEvent.data)
+    const event = Object.assign(new Event(), domainEvent.data)
 
     return handler<TState>(state, event)
   }
