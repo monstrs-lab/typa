@@ -593,7 +593,7 @@ __metadata:
     "@nestjs/core": ^7.6.17
     "@nestjs/platform-express": ^7.6.17
     "@nestjs/testing": ^7.6.17
-    "@typa/common": "workspace:0.0.28"
+    "@typa/common": "workspace:0.0.29"
     "@types/jest": ^26.0.23
     find-root: "*"
     reflect-metadata: ^0.1.13
@@ -1494,7 +1494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typa/command-handling@workspace:0.0.27, @typa/command-handling@workspace:packages/command-handling":
+"@typa/command-handling@workspace:0.0.28, @typa/command-handling@workspace:packages/command-handling":
   version: 0.0.0-use.local
   resolution: "@typa/command-handling@workspace:packages/command-handling"
   dependencies:
@@ -1502,7 +1502,7 @@ __metadata:
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
     "@nestjs/testing": ^7.6.17
-    "@typa/domain": "workspace:0.0.26"
+    "@typa/domain": "workspace:0.0.27"
     "@typa/event-handling": "workspace:0.0.24"
     "@typa/storage": "workspace:0.0.24"
     lodash: ^4.17.21
@@ -1515,15 +1515,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/common@workspace:0.0.28, @typa/common@workspace:packages/common":
+"@typa/common@workspace:0.0.29, @typa/common@workspace:packages/common":
   version: 0.0.0-use.local
   resolution: "@typa/common@workspace:packages/common"
   dependencies:
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
     "@nestjs/testing": ^7.6.17
-    "@typa/command-handling": "workspace:0.0.27"
-    "@typa/domain": "workspace:0.0.26"
+    "@typa/command-handling": "workspace:0.0.28"
+    "@typa/domain": "workspace:0.0.27"
     "@typa/event-handling": "workspace:0.0.24"
     "@typa/query-handling": "workspace:0.0.18"
     "@typa/storage": "workspace:0.0.24"
@@ -1532,7 +1532,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@typa/domain@workspace:0.0.26, @typa/domain@workspace:packages/domain":
+"@typa/domain@workspace:0.0.27, @typa/domain@workspace:packages/domain":
   version: 0.0.0-use.local
   resolution: "@typa/domain@workspace:packages/domain"
   dependencies:
@@ -2539,7 +2539,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
-    "@typa/common": "workspace:0.0.28"
+    "@typa/common": "workspace:0.0.29"
   languageName: unknown
   linkType: soft
 
@@ -2549,7 +2549,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
-    "@typa/common": "workspace:0.0.28"
+    "@typa/common": "workspace:0.0.29"
     "@types/node": ^14.17.0
     "@videostore/domain": "workspace:0.0.1"
     reflect-metadata: ^0.1.13
@@ -2565,7 +2565,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
-    "@typa/common": "workspace:0.0.28"
+    "@typa/common": "workspace:0.0.29"
     "@videostore/domain": "workspace:0.0.1"
     class-transformer: ^0.4.0
     class-validator: ^0.13.1
@@ -2580,7 +2580,7 @@ __metadata:
     "@nestjs/common": ^7.6.17
     "@nestjs/core": ^7.6.17
     "@nestjs/platform-express": ^7.6.17
-    "@typa/common": "workspace:0.0.28"
+    "@typa/common": "workspace:0.0.29"
     "@videostore/domain": "workspace:0.0.1"
     "@videostore/projection": "workspace:0.0.1"
     "@videostore/rest-adapter": "workspace:0.0.1"

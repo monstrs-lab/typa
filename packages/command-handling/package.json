@@ -1,6 +1,6 @@
 {
   "name": "@typa/command-handling",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -15,7 +15,7 @@
     "@monstrs/logger": "^0.0.6",
     "@nestjs/common": "^7.6.17",
     "@nestjs/core": "^7.6.17",
-    "@typa/domain": "workspace:0.0.26",
+    "@typa/domain": "workspace:0.0.27",
     "@typa/event-handling": "workspace:0.0.24",
     "lodash": "^4.17.21",
     "p-forever": "2.1.0",
