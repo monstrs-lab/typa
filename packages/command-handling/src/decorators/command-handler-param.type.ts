@@ -4,4 +4,5 @@ export enum CommandHandlerParamType {
   COMMAND = 1,
   APPLY_EVENT = 2,
   METADATA = 3,
+  AGGREGATE_REPOSITORY = 4,
 }

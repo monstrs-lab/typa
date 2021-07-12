@@ -13,6 +13,7 @@ export { BooleanValueObject } from '@typa/domain'
 export { StringValueObject } from '@typa/domain'
 export { FloatValueObject } from '@typa/domain'
 export { ValueObject } from '@typa/domain'
+export { Repository } from '@typa/domain'
 
 export { Command } from '@typa/command-handling'
 export { ApplyEvent } from '@typa/command-handling'

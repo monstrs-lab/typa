@@ -4,6 +4,7 @@ import { CommandData }         from 'wolkenkit/build/lib/common/elements/Command
 import { State }               from 'wolkenkit/build/lib/common/elements/State'
 
 import { IEvent }              from '@typa/event-handling'
+import { Repository }          from '@typa/domain'
 
 import { ICommandConstructor } from '../interfaces'
 import { ICommand }            from '../interfaces'
@@ -36,7 +37,8 @@ export class CommandHandlingMember {
 
   async handle<TState extends State, TCommandData extends CommandData>(
     state: TState,
-    command: Command<TCommandData>
+    command: Command<TCommandData>,
+    repository: Repository
   ): Promise<Array<IEvent>> {
     const { command: Cmd, handler } = this
 
@@ -44,9 +46,15 @@ export class CommandHandlingMember {
 
     const cmd = Object.assign(new Cmd(), command.data)
 
-    const result = await handler<TState>(state, cmd, (event: IEvent) => {
-      events.push(event)
-    })
+    const result = await handler<TState>(
+      state,
+      cmd,
+      (event: IEvent) => {
+        events.push(event)
+      },
+      {},
+      repository
+    )
 
     if (result && result instanceof Error) {
       throw result
