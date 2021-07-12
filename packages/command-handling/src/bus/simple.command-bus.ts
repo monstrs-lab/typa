@@ -25,7 +25,11 @@ export class SimpleCommandBus extends AbstractCommandBus {
       command.aggregateIdentifier
     )
 
-    const handledEvents = await commandHandler.handle(aggregateInstance.state, cloneDeep(command))
+    const handledEvents = await commandHandler.handle(
+      aggregateInstance.state,
+      cloneDeep(command),
+      this.repository
+    )
 
     const domainEvents = await aggregateInstance.applyCommandEvents(command, handledEvents)
 
