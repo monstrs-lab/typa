@@ -17,6 +17,7 @@ export { Repository } from '@typa/domain'
 
 export { Command } from '@typa/command-handling'
 export { ApplyEvent } from '@typa/command-handling'
+export { AggregateRepository } from '@typa/command-handling'
 export { CommandHandler } from '@typa/command-handling'
 export { TargetAggregateIdentifier } from '@typa/command-handling'
 export { CommandGateway } from '@typa/command-handling'
