@@ -1,0 +1,3 @@
+releases:
+  "@typa/command-handling": patch
+  "@typa/common": patch
